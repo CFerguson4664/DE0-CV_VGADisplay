@@ -1,0 +1,50 @@
+//FSM Design
+
+module HorizontalStateFSM(A,CLK,Y,Q,R);
+input A,CLK,R;
+output Y;
+output [1:0] Q;
+
+parameter S0 = 0;
+parameter S1 = 1;
+parameter S2 = 2;
+parameter S3 = 3;
+
+
+reg [1:0] pState, nState;
+
+//Shift logic
+always@(posedge CLK or posedge R)
+begin
+	if(R==1) pState = S0;
+	else pState = nState;
+end
+
+//Next state logic
+always@(*)
+case(pState)
+S0 :	case(A)
+		0 : nState = S3;
+		1 : nState = S1;
+		endcase
+S1 :	case(A)
+		0 : nState = S0;
+		1 : nState = S2;
+		endcase
+S2 :	case(A)
+		0 : nState = S1;
+		1 : nState = S3;
+		endcase
+S3 : 	case(A)
+		0 : nState = S2;
+		1 : nState = S0;
+		endcase
+default : nState = S0;
+endcase
+
+assign Q = pState;
+
+assign Y = (pState == S0) ? 0 : 1;
+
+endmodule
+		

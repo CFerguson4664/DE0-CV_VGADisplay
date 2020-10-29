@@ -1,0 +1,4 @@
+module VGADisplay(CLOCK_50,HState,C);
+input CLOCK_50;
+output[1:0] HState;
+output[9:0] C;

@@ -1,0 +1,715 @@
+|VGADisplay
+CLOCK_50 => CLOCK_50.IN1
+VGA_HS << YH.DB_MAX_OUTPUT_PORT_TYPE
+VGA_VS << YV.DB_MAX_OUTPUT_PORT_TYPE
+VGA_R[0] << VGA_R.DB_MAX_OUTPUT_PORT_TYPE
+VGA_R[1] << VGA_R.DB_MAX_OUTPUT_PORT_TYPE
+VGA_R[2] << VGA_R.DB_MAX_OUTPUT_PORT_TYPE
+VGA_R[3] << VGA_R.DB_MAX_OUTPUT_PORT_TYPE
+VGA_G[0] << VGA_G.DB_MAX_OUTPUT_PORT_TYPE
+VGA_G[1] << VGA_G.DB_MAX_OUTPUT_PORT_TYPE
+VGA_G[2] << VGA_G.DB_MAX_OUTPUT_PORT_TYPE
+VGA_G[3] << VGA_G.DB_MAX_OUTPUT_PORT_TYPE
+VGA_B[0] << VGA_B.DB_MAX_OUTPUT_PORT_TYPE
+VGA_B[1] << VGA_B.DB_MAX_OUTPUT_PORT_TYPE
+VGA_B[2] << VGA_B.DB_MAX_OUTPUT_PORT_TYPE
+VGA_B[3] << VGA_B.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VGADisplay|JKFlipFlopAResetComp:comb_3
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync800Comp:s0
+CLK => CLK.IN10
+Cout[0] <= C[0].DB_MAX_OUTPUT_PORT_TYPE
+Cout[1] <= JKFlipFlopAResetComp:FF1.port3
+Cout[2] <= JKFlipFlopAResetComp:FF2.port3
+Cout[3] <= JKFlipFlopAResetComp:FF3.port3
+Cout[4] <= JKFlipFlopAResetComp:FF4.port3
+Cout[5] <= JKFlipFlopAResetComp:FF5.port3
+Cout[6] <= JKFlipFlopAResetComp:FF6.port3
+Cout[7] <= JKFlipFlopAResetComp:FF7.port3
+Cout[8] <= JKFlipFlopAResetComp:FF8.port3
+Cout[9] <= JKFlipFlopAResetComp:FF9.port3
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF0
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF0|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF1
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF1|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF2
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF2|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF3
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF3|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF4
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF4|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF5
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF5|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF6
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF6|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF7
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF7|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF8
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF8|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF9
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF9|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|HorizontalStateFSM:s1
+A[0] => Equal0.IN63
+A[0] => Equal1.IN63
+A[0] => Equal2.IN63
+A[0] => Equal3.IN63
+A[1] => Equal0.IN62
+A[1] => Equal1.IN62
+A[1] => Equal2.IN62
+A[1] => Equal3.IN62
+A[2] => Equal0.IN61
+A[2] => Equal1.IN61
+A[2] => Equal2.IN61
+A[2] => Equal3.IN61
+A[3] => Equal0.IN60
+A[3] => Equal1.IN60
+A[3] => Equal2.IN60
+A[3] => Equal3.IN60
+A[4] => Equal0.IN59
+A[4] => Equal1.IN59
+A[4] => Equal2.IN59
+A[4] => Equal3.IN59
+A[5] => Equal0.IN58
+A[5] => Equal1.IN58
+A[5] => Equal2.IN58
+A[5] => Equal3.IN58
+A[6] => Equal0.IN57
+A[6] => Equal1.IN57
+A[6] => Equal2.IN57
+A[6] => Equal3.IN57
+A[7] => Equal0.IN56
+A[7] => Equal1.IN56
+A[7] => Equal2.IN56
+A[7] => Equal3.IN56
+A[8] => Equal0.IN55
+A[8] => Equal1.IN55
+A[8] => Equal2.IN55
+A[8] => Equal3.IN55
+A[9] => Equal0.IN54
+A[9] => Equal1.IN54
+A[9] => Equal2.IN54
+A[9] => Equal3.IN54
+CLK => pState~1.DATAIN
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Q[0] <= Q.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VGADisplay|sync525Comp:s2
+CLK => CLK.IN10
+Cout[0] <= C[0].DB_MAX_OUTPUT_PORT_TYPE
+Cout[1] <= JKFlipFlopAResetComp:FF1.port3
+Cout[2] <= JKFlipFlopAResetComp:FF2.port3
+Cout[3] <= JKFlipFlopAResetComp:FF3.port3
+Cout[4] <= JKFlipFlopAResetComp:FF4.port3
+Cout[5] <= JKFlipFlopAResetComp:FF5.port3
+Cout[6] <= JKFlipFlopAResetComp:FF6.port3
+Cout[7] <= JKFlipFlopAResetComp:FF7.port3
+Cout[8] <= JKFlipFlopAResetComp:FF8.port3
+Cout[9] <= JKFlipFlopAResetComp:FF9.port3
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF0
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF0|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF1
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF1|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF2
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF2|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF3
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF3|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF4
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF4|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF5
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF5|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF6
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF6|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF7
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF7|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF8
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF8|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF9
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF9|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|VerticalStateFSM:s3
+A[0] => Equal0.IN63
+A[0] => Equal1.IN63
+A[0] => Equal2.IN63
+A[0] => Equal3.IN63
+A[1] => Equal0.IN62
+A[1] => Equal1.IN62
+A[1] => Equal2.IN62
+A[1] => Equal3.IN62
+A[2] => Equal0.IN61
+A[2] => Equal1.IN61
+A[2] => Equal2.IN61
+A[2] => Equal3.IN61
+A[3] => Equal0.IN60
+A[3] => Equal1.IN60
+A[3] => Equal2.IN60
+A[3] => Equal3.IN60
+A[4] => Equal0.IN59
+A[4] => Equal1.IN59
+A[4] => Equal2.IN59
+A[4] => Equal3.IN59
+A[5] => Equal0.IN58
+A[5] => Equal1.IN58
+A[5] => Equal2.IN58
+A[5] => Equal3.IN58
+A[6] => Equal0.IN57
+A[6] => Equal1.IN57
+A[6] => Equal2.IN57
+A[6] => Equal3.IN57
+A[7] => Equal0.IN56
+A[7] => Equal1.IN56
+A[7] => Equal2.IN56
+A[7] => Equal3.IN56
+A[8] => Equal0.IN55
+A[8] => Equal1.IN55
+A[8] => Equal2.IN55
+A[8] => Equal3.IN55
+A[9] => Equal0.IN54
+A[9] => Equal1.IN54
+A[9] => Equal2.IN54
+A[9] => Equal3.IN54
+CLK => pState~1.DATAIN
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Q[0] <= Q.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VGADisplay|sync420Comp:s4
+CLK => CLK.IN10
+Cout[0] <= C[0].DB_MAX_OUTPUT_PORT_TYPE
+Cout[1] <= JKFlipFlopAResetComp:FF1.port3
+Cout[2] <= JKFlipFlopAResetComp:FF2.port3
+Cout[3] <= JKFlipFlopAResetComp:FF3.port3
+Cout[4] <= JKFlipFlopAResetComp:FF4.port3
+Cout[5] <= JKFlipFlopAResetComp:FF5.port3
+Cout[6] <= JKFlipFlopAResetComp:FF6.port3
+Cout[7] <= JKFlipFlopAResetComp:FF7.port3
+Cout[8] <= JKFlipFlopAResetComp:FF8.port3
+Cout[9] <= JKFlipFlopAResetComp:FF9.port3
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF0
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF0|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF1
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF1|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF2
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF2|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF3
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF3|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF4
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF4|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF5
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF5|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF6
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF6|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF7
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF7|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF8
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF8|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF9
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF9|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|ColorFSM:s5
+A[0] => Equal0.IN63
+A[0] => Equal1.IN63
+A[0] => Equal2.IN63
+A[0] => Equal3.IN63
+A[0] => Equal4.IN63
+A[0] => Equal5.IN63
+A[0] => Equal6.IN63
+A[0] => Equal7.IN63
+A[1] => Equal0.IN62
+A[1] => Equal1.IN62
+A[1] => Equal2.IN62
+A[1] => Equal3.IN62
+A[1] => Equal4.IN62
+A[1] => Equal5.IN62
+A[1] => Equal6.IN62
+A[1] => Equal7.IN62
+A[2] => Equal0.IN61
+A[2] => Equal1.IN61
+A[2] => Equal2.IN61
+A[2] => Equal3.IN61
+A[2] => Equal4.IN61
+A[2] => Equal5.IN61
+A[2] => Equal6.IN61
+A[2] => Equal7.IN61
+A[3] => Equal0.IN60
+A[3] => Equal1.IN60
+A[3] => Equal2.IN60
+A[3] => Equal3.IN60
+A[3] => Equal4.IN60
+A[3] => Equal5.IN60
+A[3] => Equal6.IN60
+A[3] => Equal7.IN60
+A[4] => Equal0.IN59
+A[4] => Equal1.IN59
+A[4] => Equal2.IN59
+A[4] => Equal3.IN59
+A[4] => Equal4.IN59
+A[4] => Equal5.IN59
+A[4] => Equal6.IN59
+A[4] => Equal7.IN59
+A[5] => Equal0.IN58
+A[5] => Equal1.IN58
+A[5] => Equal2.IN58
+A[5] => Equal3.IN58
+A[5] => Equal4.IN58
+A[5] => Equal5.IN58
+A[5] => Equal6.IN58
+A[5] => Equal7.IN58
+A[6] => Equal0.IN57
+A[6] => Equal1.IN57
+A[6] => Equal2.IN57
+A[6] => Equal3.IN57
+A[6] => Equal4.IN57
+A[6] => Equal5.IN57
+A[6] => Equal6.IN57
+A[6] => Equal7.IN57
+A[7] => Equal0.IN56
+A[7] => Equal1.IN56
+A[7] => Equal2.IN56
+A[7] => Equal3.IN56
+A[7] => Equal4.IN56
+A[7] => Equal5.IN56
+A[7] => Equal6.IN56
+A[7] => Equal7.IN56
+A[8] => Equal0.IN55
+A[8] => Equal1.IN55
+A[8] => Equal2.IN55
+A[8] => Equal3.IN55
+A[8] => Equal4.IN55
+A[8] => Equal5.IN55
+A[8] => Equal6.IN55
+A[8] => Equal7.IN55
+A[9] => Equal0.IN54
+A[9] => Equal1.IN54
+A[9] => Equal2.IN54
+A[9] => Equal3.IN54
+A[9] => Equal4.IN54
+A[9] => Equal5.IN54
+A[9] => Equal6.IN54
+A[9] => Equal7.IN54
+CLK => pState~1.DATAIN
+Red[0] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
+Red[1] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
+Red[2] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
+Red[3] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
+Green[0] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
+Green[1] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
+Green[2] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
+Green[3] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
+Blue[0] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
+Blue[1] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
+Blue[2] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
+Blue[3] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
+
+

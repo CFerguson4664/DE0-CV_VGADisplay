@@ -1,19 +1,33 @@
 |VGADisplay
 CLOCK_50 => CLOCK_50.IN1
-VGA_HS << YH.DB_MAX_OUTPUT_PORT_TYPE
-VGA_VS << YV.DB_MAX_OUTPUT_PORT_TYPE
-VGA_R[0] << VGA_R.DB_MAX_OUTPUT_PORT_TYPE
-VGA_R[1] << VGA_R.DB_MAX_OUTPUT_PORT_TYPE
-VGA_R[2] << VGA_R.DB_MAX_OUTPUT_PORT_TYPE
-VGA_R[3] << VGA_R.DB_MAX_OUTPUT_PORT_TYPE
-VGA_G[0] << VGA_G.DB_MAX_OUTPUT_PORT_TYPE
-VGA_G[1] << VGA_G.DB_MAX_OUTPUT_PORT_TYPE
-VGA_G[2] << VGA_G.DB_MAX_OUTPUT_PORT_TYPE
-VGA_G[3] << VGA_G.DB_MAX_OUTPUT_PORT_TYPE
-VGA_B[0] << VGA_B.DB_MAX_OUTPUT_PORT_TYPE
-VGA_B[1] << VGA_B.DB_MAX_OUTPUT_PORT_TYPE
-VGA_B[2] << VGA_B.DB_MAX_OUTPUT_PORT_TYPE
-VGA_B[3] << VGA_B.DB_MAX_OUTPUT_PORT_TYPE
+VGA_HS <= YH.DB_MAX_OUTPUT_PORT_TYPE
+VGA_VS <= VerticalStateFSM:s4.port2
+VGA_R[0] <= VGA_R.DB_MAX_OUTPUT_PORT_TYPE
+VGA_R[1] <= VGA_R.DB_MAX_OUTPUT_PORT_TYPE
+VGA_R[2] <= VGA_R.DB_MAX_OUTPUT_PORT_TYPE
+VGA_R[3] <= VGA_R.DB_MAX_OUTPUT_PORT_TYPE
+VGA_G[0] <= VGA_G.DB_MAX_OUTPUT_PORT_TYPE
+VGA_G[1] <= VGA_G.DB_MAX_OUTPUT_PORT_TYPE
+VGA_G[2] <= VGA_G.DB_MAX_OUTPUT_PORT_TYPE
+VGA_G[3] <= VGA_G.DB_MAX_OUTPUT_PORT_TYPE
+VGA_B[0] <= VGA_B.DB_MAX_OUTPUT_PORT_TYPE
+VGA_B[1] <= VGA_B.DB_MAX_OUTPUT_PORT_TYPE
+VGA_B[2] <= VGA_B.DB_MAX_OUTPUT_PORT_TYPE
+VGA_B[3] <= VGA_B.DB_MAX_OUTPUT_PORT_TYPE
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+SW[4] => SW[4].IN1
+SW[5] => SW[5].IN1
+SW[6] => SW[6].IN1
+SW[7] => SW[7].IN1
+SW[8] => SW[8].IN1
+SW[9] => SW[9].IN1
+KEY[0] => KEY[0].IN1
+KEY[1] => KEY[1].IN1
+KEY[2] => KEY[2].IN1
+KEY[3] => KEY[3].IN1
 
 
 |VGADisplay|JKFlipFlopAResetComp:comb_3
@@ -242,382 +256,7 @@ Q[0] <= Q.DB_MAX_OUTPUT_PORT_TYPE
 Q[1] <= Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|VGADisplay|sync525Comp:s2
-CLK => CLK.IN10
-Cout[0] <= C[0].DB_MAX_OUTPUT_PORT_TYPE
-Cout[1] <= JKFlipFlopAResetComp:FF1.port3
-Cout[2] <= JKFlipFlopAResetComp:FF2.port3
-Cout[3] <= JKFlipFlopAResetComp:FF3.port3
-Cout[4] <= JKFlipFlopAResetComp:FF4.port3
-Cout[5] <= JKFlipFlopAResetComp:FF5.port3
-Cout[6] <= JKFlipFlopAResetComp:FF6.port3
-Cout[7] <= JKFlipFlopAResetComp:FF7.port3
-Cout[8] <= JKFlipFlopAResetComp:FF8.port3
-Cout[9] <= JKFlipFlopAResetComp:FF9.port3
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF0
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF0|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF1
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF1|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF2
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF2|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF3
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF3|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF4
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF4|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF5
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF5|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF6
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF6|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF7
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF7|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF8
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF8|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF9
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF9|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|VerticalStateFSM:s3
-A[0] => Equal0.IN63
-A[0] => Equal1.IN63
-A[0] => Equal2.IN63
-A[0] => Equal3.IN63
-A[1] => Equal0.IN62
-A[1] => Equal1.IN62
-A[1] => Equal2.IN62
-A[1] => Equal3.IN62
-A[2] => Equal0.IN61
-A[2] => Equal1.IN61
-A[2] => Equal2.IN61
-A[2] => Equal3.IN61
-A[3] => Equal0.IN60
-A[3] => Equal1.IN60
-A[3] => Equal2.IN60
-A[3] => Equal3.IN60
-A[4] => Equal0.IN59
-A[4] => Equal1.IN59
-A[4] => Equal2.IN59
-A[4] => Equal3.IN59
-A[5] => Equal0.IN58
-A[5] => Equal1.IN58
-A[5] => Equal2.IN58
-A[5] => Equal3.IN58
-A[6] => Equal0.IN57
-A[6] => Equal1.IN57
-A[6] => Equal2.IN57
-A[6] => Equal3.IN57
-A[7] => Equal0.IN56
-A[7] => Equal1.IN56
-A[7] => Equal2.IN56
-A[7] => Equal3.IN56
-A[8] => Equal0.IN55
-A[8] => Equal1.IN55
-A[8] => Equal2.IN55
-A[8] => Equal3.IN55
-A[9] => Equal0.IN54
-A[9] => Equal1.IN54
-A[9] => Equal2.IN54
-A[9] => Equal3.IN54
-CLK => pState~1.DATAIN
-Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
-Q[0] <= Q.DB_MAX_OUTPUT_PORT_TYPE
-Q[1] <= Q.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|VGADisplay|sync420Comp:s4
-CLK => CLK.IN10
-Cout[0] <= C[0].DB_MAX_OUTPUT_PORT_TYPE
-Cout[1] <= JKFlipFlopAResetComp:FF1.port3
-Cout[2] <= JKFlipFlopAResetComp:FF2.port3
-Cout[3] <= JKFlipFlopAResetComp:FF3.port3
-Cout[4] <= JKFlipFlopAResetComp:FF4.port3
-Cout[5] <= JKFlipFlopAResetComp:FF5.port3
-Cout[6] <= JKFlipFlopAResetComp:FF6.port3
-Cout[7] <= JKFlipFlopAResetComp:FF7.port3
-Cout[8] <= JKFlipFlopAResetComp:FF8.port3
-Cout[9] <= JKFlipFlopAResetComp:FF9.port3
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF0
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF0|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF1
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF1|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF2
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF2|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF3
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF3|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF4
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF4|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF5
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF5|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF6
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF6|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF7
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF7|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF8
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF8|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF9
-J => CL.IN1
-K => CL.IN1
-CLK => CLK.IN1
-Q <= DFlipFlopAResetComp:ff0.port2
-reset => reset.IN1
-
-
-|VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF9|DFlipFlopAResetComp:ff0
-D => Q~reg0.DATAIN
-CLK => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reset => Q~reg0.ACLR
-
-
-|VGADisplay|ColorFSM:s5
+|VGADisplay|HorizontalColorStateFSM:s2
 A[0] => Equal0.IN63
 A[0] => Equal1.IN63
 A[0] => Equal2.IN63
@@ -699,17 +338,787 @@ A[9] => Equal5.IN54
 A[9] => Equal6.IN54
 A[9] => Equal7.IN54
 CLK => pState~1.DATAIN
-Red[0] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
-Red[1] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
-Red[2] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
-Red[3] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
-Green[0] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
-Green[1] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
-Green[2] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
-Green[3] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
-Blue[0] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
-Blue[1] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
-Blue[2] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
-Blue[3] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
+Q[0] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VGADisplay|sync525Comp:s3
+CLK => CLK.IN10
+Cout[0] <= C[0].DB_MAX_OUTPUT_PORT_TYPE
+Cout[1] <= JKFlipFlopAResetComp:FF1.port3
+Cout[2] <= JKFlipFlopAResetComp:FF2.port3
+Cout[3] <= JKFlipFlopAResetComp:FF3.port3
+Cout[4] <= JKFlipFlopAResetComp:FF4.port3
+Cout[5] <= JKFlipFlopAResetComp:FF5.port3
+Cout[6] <= JKFlipFlopAResetComp:FF6.port3
+Cout[7] <= JKFlipFlopAResetComp:FF7.port3
+Cout[8] <= JKFlipFlopAResetComp:FF8.port3
+Cout[9] <= JKFlipFlopAResetComp:FF9.port3
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF0
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF0|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF1
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF1|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF2
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF2|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF3
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF3|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF4
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF4|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF5
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF5|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF6
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF6|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF7
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF7|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF8
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF8|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF9
+J => CL.IN1
+K => CL.IN1
+CLK => CLK.IN1
+Q <= DFlipFlopAResetComp:ff0.port2
+reset => reset.IN1
+
+
+|VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF9|DFlipFlopAResetComp:ff0
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+reset => Q~reg0.ACLR
+
+
+|VGADisplay|VerticalStateFSM:s4
+A[0] => Equal0.IN63
+A[0] => Equal1.IN63
+A[0] => Equal2.IN63
+A[0] => Equal3.IN63
+A[1] => Equal0.IN62
+A[1] => Equal1.IN62
+A[1] => Equal2.IN62
+A[1] => Equal3.IN62
+A[2] => Equal0.IN61
+A[2] => Equal1.IN61
+A[2] => Equal2.IN61
+A[2] => Equal3.IN61
+A[3] => Equal0.IN60
+A[3] => Equal1.IN60
+A[3] => Equal2.IN60
+A[3] => Equal3.IN60
+A[4] => Equal0.IN59
+A[4] => Equal1.IN59
+A[4] => Equal2.IN59
+A[4] => Equal3.IN59
+A[5] => Equal0.IN58
+A[5] => Equal1.IN58
+A[5] => Equal2.IN58
+A[5] => Equal3.IN58
+A[6] => Equal0.IN57
+A[6] => Equal1.IN57
+A[6] => Equal2.IN57
+A[6] => Equal3.IN57
+A[7] => Equal0.IN56
+A[7] => Equal1.IN56
+A[7] => Equal2.IN56
+A[7] => Equal3.IN56
+A[8] => Equal0.IN55
+A[8] => Equal1.IN55
+A[8] => Equal2.IN55
+A[8] => Equal3.IN55
+A[9] => Equal0.IN54
+A[9] => Equal1.IN54
+A[9] => Equal2.IN54
+A[9] => Equal3.IN54
+CLK => pState~1.DATAIN
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Q[0] <= Q.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VGADisplay|VerticalColorStateFSM:s5
+A[0] => Equal0.IN63
+A[0] => Equal1.IN63
+A[0] => Equal2.IN63
+A[0] => Equal3.IN63
+A[0] => Equal4.IN63
+A[0] => Equal5.IN63
+A[0] => Equal6.IN63
+A[0] => Equal7.IN63
+A[1] => Equal0.IN62
+A[1] => Equal1.IN62
+A[1] => Equal2.IN62
+A[1] => Equal3.IN62
+A[1] => Equal4.IN62
+A[1] => Equal5.IN62
+A[1] => Equal6.IN62
+A[1] => Equal7.IN62
+A[2] => Equal0.IN61
+A[2] => Equal1.IN61
+A[2] => Equal2.IN61
+A[2] => Equal3.IN61
+A[2] => Equal4.IN61
+A[2] => Equal5.IN61
+A[2] => Equal6.IN61
+A[2] => Equal7.IN61
+A[3] => Equal0.IN60
+A[3] => Equal1.IN60
+A[3] => Equal2.IN60
+A[3] => Equal3.IN60
+A[3] => Equal4.IN60
+A[3] => Equal5.IN60
+A[3] => Equal6.IN60
+A[3] => Equal7.IN60
+A[4] => Equal0.IN59
+A[4] => Equal1.IN59
+A[4] => Equal2.IN59
+A[4] => Equal3.IN59
+A[4] => Equal4.IN59
+A[4] => Equal5.IN59
+A[4] => Equal6.IN59
+A[4] => Equal7.IN59
+A[5] => Equal0.IN58
+A[5] => Equal1.IN58
+A[5] => Equal2.IN58
+A[5] => Equal3.IN58
+A[5] => Equal4.IN58
+A[5] => Equal5.IN58
+A[5] => Equal6.IN58
+A[5] => Equal7.IN58
+A[6] => Equal0.IN57
+A[6] => Equal1.IN57
+A[6] => Equal2.IN57
+A[6] => Equal3.IN57
+A[6] => Equal4.IN57
+A[6] => Equal5.IN57
+A[6] => Equal6.IN57
+A[6] => Equal7.IN57
+A[7] => Equal0.IN56
+A[7] => Equal1.IN56
+A[7] => Equal2.IN56
+A[7] => Equal3.IN56
+A[7] => Equal4.IN56
+A[7] => Equal5.IN56
+A[7] => Equal6.IN56
+A[7] => Equal7.IN56
+A[8] => Equal0.IN55
+A[8] => Equal1.IN55
+A[8] => Equal2.IN55
+A[8] => Equal3.IN55
+A[8] => Equal4.IN55
+A[8] => Equal5.IN55
+A[8] => Equal6.IN55
+A[8] => Equal7.IN55
+A[9] => Equal0.IN54
+A[9] => Equal1.IN54
+A[9] => Equal2.IN54
+A[9] => Equal3.IN54
+A[9] => Equal4.IN54
+A[9] => Equal5.IN54
+A[9] => Equal6.IN54
+A[9] => Equal7.IN54
+CLK => pState~1.DATAIN
+Q[0] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VGADisplay|ColorStorage:comb_4
+SW[0] => Decoder1.IN2
+SW[1] => Decoder1.IN1
+SW[2] => Decoder1.IN0
+SW[3] => Decoder0.IN2
+SW[4] => Decoder0.IN1
+SW[5] => Decoder0.IN0
+SW[6] => ~NO_FANOUT~
+SW[7] => colorData[0][0][2].DATAIN
+SW[7] => colorData[0][1][2].DATAIN
+SW[7] => colorData[0][2][2].DATAIN
+SW[7] => colorData[0][3][2].DATAIN
+SW[7] => colorData[0][4][2].DATAIN
+SW[7] => colorData[0][5][2].DATAIN
+SW[7] => colorData[0][6][2].DATAIN
+SW[7] => colorData[0][7][2].DATAIN
+SW[7] => colorData[1][0][2].DATAIN
+SW[7] => colorData[1][1][2].DATAIN
+SW[7] => colorData[1][2][2].DATAIN
+SW[7] => colorData[1][3][2].DATAIN
+SW[7] => colorData[1][4][2].DATAIN
+SW[7] => colorData[1][5][2].DATAIN
+SW[7] => colorData[1][6][2].DATAIN
+SW[7] => colorData[1][7][2].DATAIN
+SW[7] => colorData[2][0][2].DATAIN
+SW[7] => colorData[2][1][2].DATAIN
+SW[7] => colorData[2][2][2].DATAIN
+SW[7] => colorData[2][3][2].DATAIN
+SW[7] => colorData[2][4][2].DATAIN
+SW[7] => colorData[2][5][2].DATAIN
+SW[7] => colorData[2][6][2].DATAIN
+SW[7] => colorData[2][7][2].DATAIN
+SW[7] => colorData[3][0][2].DATAIN
+SW[7] => colorData[3][1][2].DATAIN
+SW[7] => colorData[3][2][2].DATAIN
+SW[7] => colorData[3][3][2].DATAIN
+SW[7] => colorData[3][4][2].DATAIN
+SW[7] => colorData[3][5][2].DATAIN
+SW[7] => colorData[3][6][2].DATAIN
+SW[7] => colorData[3][7][2].DATAIN
+SW[7] => colorData[4][0][2].DATAIN
+SW[7] => colorData[4][1][2].DATAIN
+SW[7] => colorData[4][2][2].DATAIN
+SW[7] => colorData[4][3][2].DATAIN
+SW[7] => colorData[4][4][2].DATAIN
+SW[7] => colorData[4][5][2].DATAIN
+SW[7] => colorData[4][6][2].DATAIN
+SW[7] => colorData[4][7][2].DATAIN
+SW[7] => colorData[5][0][2].DATAIN
+SW[7] => colorData[5][1][2].DATAIN
+SW[7] => colorData[5][2][2].DATAIN
+SW[7] => colorData[5][3][2].DATAIN
+SW[7] => colorData[5][4][2].DATAIN
+SW[7] => colorData[5][5][2].DATAIN
+SW[7] => colorData[5][6][2].DATAIN
+SW[7] => colorData[5][7][2].DATAIN
+SW[7] => colorData[6][0][2].DATAIN
+SW[7] => colorData[6][1][2].DATAIN
+SW[7] => colorData[6][2][2].DATAIN
+SW[7] => colorData[6][3][2].DATAIN
+SW[7] => colorData[6][4][2].DATAIN
+SW[7] => colorData[6][5][2].DATAIN
+SW[7] => colorData[6][6][2].DATAIN
+SW[7] => colorData[6][7][2].DATAIN
+SW[7] => colorData[7][0][2].DATAIN
+SW[7] => colorData[7][1][2].DATAIN
+SW[7] => colorData[7][2][2].DATAIN
+SW[7] => colorData[7][3][2].DATAIN
+SW[7] => colorData[7][4][2].DATAIN
+SW[7] => colorData[7][5][2].DATAIN
+SW[7] => colorData[7][6][2].DATAIN
+SW[7] => colorData[7][7][2].DATAIN
+SW[8] => colorData[0][0][1].DATAIN
+SW[8] => colorData[0][1][1].DATAIN
+SW[8] => colorData[0][2][1].DATAIN
+SW[8] => colorData[0][3][1].DATAIN
+SW[8] => colorData[0][4][1].DATAIN
+SW[8] => colorData[0][5][1].DATAIN
+SW[8] => colorData[0][6][1].DATAIN
+SW[8] => colorData[0][7][1].DATAIN
+SW[8] => colorData[1][0][1].DATAIN
+SW[8] => colorData[1][1][1].DATAIN
+SW[8] => colorData[1][2][1].DATAIN
+SW[8] => colorData[1][3][1].DATAIN
+SW[8] => colorData[1][4][1].DATAIN
+SW[8] => colorData[1][5][1].DATAIN
+SW[8] => colorData[1][6][1].DATAIN
+SW[8] => colorData[1][7][1].DATAIN
+SW[8] => colorData[2][0][1].DATAIN
+SW[8] => colorData[2][1][1].DATAIN
+SW[8] => colorData[2][2][1].DATAIN
+SW[8] => colorData[2][3][1].DATAIN
+SW[8] => colorData[2][4][1].DATAIN
+SW[8] => colorData[2][5][1].DATAIN
+SW[8] => colorData[2][6][1].DATAIN
+SW[8] => colorData[2][7][1].DATAIN
+SW[8] => colorData[3][0][1].DATAIN
+SW[8] => colorData[3][1][1].DATAIN
+SW[8] => colorData[3][2][1].DATAIN
+SW[8] => colorData[3][3][1].DATAIN
+SW[8] => colorData[3][4][1].DATAIN
+SW[8] => colorData[3][5][1].DATAIN
+SW[8] => colorData[3][6][1].DATAIN
+SW[8] => colorData[3][7][1].DATAIN
+SW[8] => colorData[4][0][1].DATAIN
+SW[8] => colorData[4][1][1].DATAIN
+SW[8] => colorData[4][2][1].DATAIN
+SW[8] => colorData[4][3][1].DATAIN
+SW[8] => colorData[4][4][1].DATAIN
+SW[8] => colorData[4][5][1].DATAIN
+SW[8] => colorData[4][6][1].DATAIN
+SW[8] => colorData[4][7][1].DATAIN
+SW[8] => colorData[5][0][1].DATAIN
+SW[8] => colorData[5][1][1].DATAIN
+SW[8] => colorData[5][2][1].DATAIN
+SW[8] => colorData[5][3][1].DATAIN
+SW[8] => colorData[5][4][1].DATAIN
+SW[8] => colorData[5][5][1].DATAIN
+SW[8] => colorData[5][6][1].DATAIN
+SW[8] => colorData[5][7][1].DATAIN
+SW[8] => colorData[6][0][1].DATAIN
+SW[8] => colorData[6][1][1].DATAIN
+SW[8] => colorData[6][2][1].DATAIN
+SW[8] => colorData[6][3][1].DATAIN
+SW[8] => colorData[6][4][1].DATAIN
+SW[8] => colorData[6][5][1].DATAIN
+SW[8] => colorData[6][6][1].DATAIN
+SW[8] => colorData[6][7][1].DATAIN
+SW[8] => colorData[7][0][1].DATAIN
+SW[8] => colorData[7][1][1].DATAIN
+SW[8] => colorData[7][2][1].DATAIN
+SW[8] => colorData[7][3][1].DATAIN
+SW[8] => colorData[7][4][1].DATAIN
+SW[8] => colorData[7][5][1].DATAIN
+SW[8] => colorData[7][6][1].DATAIN
+SW[8] => colorData[7][7][1].DATAIN
+SW[9] => colorData[0][0][0].DATAIN
+SW[9] => colorData[0][1][0].DATAIN
+SW[9] => colorData[0][2][0].DATAIN
+SW[9] => colorData[0][3][0].DATAIN
+SW[9] => colorData[0][4][0].DATAIN
+SW[9] => colorData[0][5][0].DATAIN
+SW[9] => colorData[0][6][0].DATAIN
+SW[9] => colorData[0][7][0].DATAIN
+SW[9] => colorData[1][0][0].DATAIN
+SW[9] => colorData[1][1][0].DATAIN
+SW[9] => colorData[1][2][0].DATAIN
+SW[9] => colorData[1][3][0].DATAIN
+SW[9] => colorData[1][4][0].DATAIN
+SW[9] => colorData[1][5][0].DATAIN
+SW[9] => colorData[1][6][0].DATAIN
+SW[9] => colorData[1][7][0].DATAIN
+SW[9] => colorData[2][0][0].DATAIN
+SW[9] => colorData[2][1][0].DATAIN
+SW[9] => colorData[2][2][0].DATAIN
+SW[9] => colorData[2][3][0].DATAIN
+SW[9] => colorData[2][4][0].DATAIN
+SW[9] => colorData[2][5][0].DATAIN
+SW[9] => colorData[2][6][0].DATAIN
+SW[9] => colorData[2][7][0].DATAIN
+SW[9] => colorData[3][0][0].DATAIN
+SW[9] => colorData[3][1][0].DATAIN
+SW[9] => colorData[3][2][0].DATAIN
+SW[9] => colorData[3][3][0].DATAIN
+SW[9] => colorData[3][4][0].DATAIN
+SW[9] => colorData[3][5][0].DATAIN
+SW[9] => colorData[3][6][0].DATAIN
+SW[9] => colorData[3][7][0].DATAIN
+SW[9] => colorData[4][0][0].DATAIN
+SW[9] => colorData[4][1][0].DATAIN
+SW[9] => colorData[4][2][0].DATAIN
+SW[9] => colorData[4][3][0].DATAIN
+SW[9] => colorData[4][4][0].DATAIN
+SW[9] => colorData[4][5][0].DATAIN
+SW[9] => colorData[4][6][0].DATAIN
+SW[9] => colorData[4][7][0].DATAIN
+SW[9] => colorData[5][0][0].DATAIN
+SW[9] => colorData[5][1][0].DATAIN
+SW[9] => colorData[5][2][0].DATAIN
+SW[9] => colorData[5][3][0].DATAIN
+SW[9] => colorData[5][4][0].DATAIN
+SW[9] => colorData[5][5][0].DATAIN
+SW[9] => colorData[5][6][0].DATAIN
+SW[9] => colorData[5][7][0].DATAIN
+SW[9] => colorData[6][0][0].DATAIN
+SW[9] => colorData[6][1][0].DATAIN
+SW[9] => colorData[6][2][0].DATAIN
+SW[9] => colorData[6][3][0].DATAIN
+SW[9] => colorData[6][4][0].DATAIN
+SW[9] => colorData[6][5][0].DATAIN
+SW[9] => colorData[6][6][0].DATAIN
+SW[9] => colorData[6][7][0].DATAIN
+SW[9] => colorData[7][0][0].DATAIN
+SW[9] => colorData[7][1][0].DATAIN
+SW[9] => colorData[7][2][0].DATAIN
+SW[9] => colorData[7][3][0].DATAIN
+SW[9] => colorData[7][4][0].DATAIN
+SW[9] => colorData[7][5][0].DATAIN
+SW[9] => colorData[7][6][0].DATAIN
+SW[9] => colorData[7][7][0].DATAIN
+KEY[0] => ~NO_FANOUT~
+KEY[1] => ~NO_FANOUT~
+KEY[2] => ~NO_FANOUT~
+KEY[3] => colorData[0][0][0].CLK
+KEY[3] => colorData[0][0][1].CLK
+KEY[3] => colorData[0][0][2].CLK
+KEY[3] => colorData[0][1][0].CLK
+KEY[3] => colorData[0][1][1].CLK
+KEY[3] => colorData[0][1][2].CLK
+KEY[3] => colorData[0][2][0].CLK
+KEY[3] => colorData[0][2][1].CLK
+KEY[3] => colorData[0][2][2].CLK
+KEY[3] => colorData[0][3][0].CLK
+KEY[3] => colorData[0][3][1].CLK
+KEY[3] => colorData[0][3][2].CLK
+KEY[3] => colorData[0][4][0].CLK
+KEY[3] => colorData[0][4][1].CLK
+KEY[3] => colorData[0][4][2].CLK
+KEY[3] => colorData[0][5][0].CLK
+KEY[3] => colorData[0][5][1].CLK
+KEY[3] => colorData[0][5][2].CLK
+KEY[3] => colorData[0][6][0].CLK
+KEY[3] => colorData[0][6][1].CLK
+KEY[3] => colorData[0][6][2].CLK
+KEY[3] => colorData[0][7][0].CLK
+KEY[3] => colorData[0][7][1].CLK
+KEY[3] => colorData[0][7][2].CLK
+KEY[3] => colorData[1][0][0].CLK
+KEY[3] => colorData[1][0][1].CLK
+KEY[3] => colorData[1][0][2].CLK
+KEY[3] => colorData[1][1][0].CLK
+KEY[3] => colorData[1][1][1].CLK
+KEY[3] => colorData[1][1][2].CLK
+KEY[3] => colorData[1][2][0].CLK
+KEY[3] => colorData[1][2][1].CLK
+KEY[3] => colorData[1][2][2].CLK
+KEY[3] => colorData[1][3][0].CLK
+KEY[3] => colorData[1][3][1].CLK
+KEY[3] => colorData[1][3][2].CLK
+KEY[3] => colorData[1][4][0].CLK
+KEY[3] => colorData[1][4][1].CLK
+KEY[3] => colorData[1][4][2].CLK
+KEY[3] => colorData[1][5][0].CLK
+KEY[3] => colorData[1][5][1].CLK
+KEY[3] => colorData[1][5][2].CLK
+KEY[3] => colorData[1][6][0].CLK
+KEY[3] => colorData[1][6][1].CLK
+KEY[3] => colorData[1][6][2].CLK
+KEY[3] => colorData[1][7][0].CLK
+KEY[3] => colorData[1][7][1].CLK
+KEY[3] => colorData[1][7][2].CLK
+KEY[3] => colorData[2][0][0].CLK
+KEY[3] => colorData[2][0][1].CLK
+KEY[3] => colorData[2][0][2].CLK
+KEY[3] => colorData[2][1][0].CLK
+KEY[3] => colorData[2][1][1].CLK
+KEY[3] => colorData[2][1][2].CLK
+KEY[3] => colorData[2][2][0].CLK
+KEY[3] => colorData[2][2][1].CLK
+KEY[3] => colorData[2][2][2].CLK
+KEY[3] => colorData[2][3][0].CLK
+KEY[3] => colorData[2][3][1].CLK
+KEY[3] => colorData[2][3][2].CLK
+KEY[3] => colorData[2][4][0].CLK
+KEY[3] => colorData[2][4][1].CLK
+KEY[3] => colorData[2][4][2].CLK
+KEY[3] => colorData[2][5][0].CLK
+KEY[3] => colorData[2][5][1].CLK
+KEY[3] => colorData[2][5][2].CLK
+KEY[3] => colorData[2][6][0].CLK
+KEY[3] => colorData[2][6][1].CLK
+KEY[3] => colorData[2][6][2].CLK
+KEY[3] => colorData[2][7][0].CLK
+KEY[3] => colorData[2][7][1].CLK
+KEY[3] => colorData[2][7][2].CLK
+KEY[3] => colorData[3][0][0].CLK
+KEY[3] => colorData[3][0][1].CLK
+KEY[3] => colorData[3][0][2].CLK
+KEY[3] => colorData[3][1][0].CLK
+KEY[3] => colorData[3][1][1].CLK
+KEY[3] => colorData[3][1][2].CLK
+KEY[3] => colorData[3][2][0].CLK
+KEY[3] => colorData[3][2][1].CLK
+KEY[3] => colorData[3][2][2].CLK
+KEY[3] => colorData[3][3][0].CLK
+KEY[3] => colorData[3][3][1].CLK
+KEY[3] => colorData[3][3][2].CLK
+KEY[3] => colorData[3][4][0].CLK
+KEY[3] => colorData[3][4][1].CLK
+KEY[3] => colorData[3][4][2].CLK
+KEY[3] => colorData[3][5][0].CLK
+KEY[3] => colorData[3][5][1].CLK
+KEY[3] => colorData[3][5][2].CLK
+KEY[3] => colorData[3][6][0].CLK
+KEY[3] => colorData[3][6][1].CLK
+KEY[3] => colorData[3][6][2].CLK
+KEY[3] => colorData[3][7][0].CLK
+KEY[3] => colorData[3][7][1].CLK
+KEY[3] => colorData[3][7][2].CLK
+KEY[3] => colorData[4][0][0].CLK
+KEY[3] => colorData[4][0][1].CLK
+KEY[3] => colorData[4][0][2].CLK
+KEY[3] => colorData[4][1][0].CLK
+KEY[3] => colorData[4][1][1].CLK
+KEY[3] => colorData[4][1][2].CLK
+KEY[3] => colorData[4][2][0].CLK
+KEY[3] => colorData[4][2][1].CLK
+KEY[3] => colorData[4][2][2].CLK
+KEY[3] => colorData[4][3][0].CLK
+KEY[3] => colorData[4][3][1].CLK
+KEY[3] => colorData[4][3][2].CLK
+KEY[3] => colorData[4][4][0].CLK
+KEY[3] => colorData[4][4][1].CLK
+KEY[3] => colorData[4][4][2].CLK
+KEY[3] => colorData[4][5][0].CLK
+KEY[3] => colorData[4][5][1].CLK
+KEY[3] => colorData[4][5][2].CLK
+KEY[3] => colorData[4][6][0].CLK
+KEY[3] => colorData[4][6][1].CLK
+KEY[3] => colorData[4][6][2].CLK
+KEY[3] => colorData[4][7][0].CLK
+KEY[3] => colorData[4][7][1].CLK
+KEY[3] => colorData[4][7][2].CLK
+KEY[3] => colorData[5][0][0].CLK
+KEY[3] => colorData[5][0][1].CLK
+KEY[3] => colorData[5][0][2].CLK
+KEY[3] => colorData[5][1][0].CLK
+KEY[3] => colorData[5][1][1].CLK
+KEY[3] => colorData[5][1][2].CLK
+KEY[3] => colorData[5][2][0].CLK
+KEY[3] => colorData[5][2][1].CLK
+KEY[3] => colorData[5][2][2].CLK
+KEY[3] => colorData[5][3][0].CLK
+KEY[3] => colorData[5][3][1].CLK
+KEY[3] => colorData[5][3][2].CLK
+KEY[3] => colorData[5][4][0].CLK
+KEY[3] => colorData[5][4][1].CLK
+KEY[3] => colorData[5][4][2].CLK
+KEY[3] => colorData[5][5][0].CLK
+KEY[3] => colorData[5][5][1].CLK
+KEY[3] => colorData[5][5][2].CLK
+KEY[3] => colorData[5][6][0].CLK
+KEY[3] => colorData[5][6][1].CLK
+KEY[3] => colorData[5][6][2].CLK
+KEY[3] => colorData[5][7][0].CLK
+KEY[3] => colorData[5][7][1].CLK
+KEY[3] => colorData[5][7][2].CLK
+KEY[3] => colorData[6][0][0].CLK
+KEY[3] => colorData[6][0][1].CLK
+KEY[3] => colorData[6][0][2].CLK
+KEY[3] => colorData[6][1][0].CLK
+KEY[3] => colorData[6][1][1].CLK
+KEY[3] => colorData[6][1][2].CLK
+KEY[3] => colorData[6][2][0].CLK
+KEY[3] => colorData[6][2][1].CLK
+KEY[3] => colorData[6][2][2].CLK
+KEY[3] => colorData[6][3][0].CLK
+KEY[3] => colorData[6][3][1].CLK
+KEY[3] => colorData[6][3][2].CLK
+KEY[3] => colorData[6][4][0].CLK
+KEY[3] => colorData[6][4][1].CLK
+KEY[3] => colorData[6][4][2].CLK
+KEY[3] => colorData[6][5][0].CLK
+KEY[3] => colorData[6][5][1].CLK
+KEY[3] => colorData[6][5][2].CLK
+KEY[3] => colorData[6][6][0].CLK
+KEY[3] => colorData[6][6][1].CLK
+KEY[3] => colorData[6][6][2].CLK
+KEY[3] => colorData[6][7][0].CLK
+KEY[3] => colorData[6][7][1].CLK
+KEY[3] => colorData[6][7][2].CLK
+KEY[3] => colorData[7][0][0].CLK
+KEY[3] => colorData[7][0][1].CLK
+KEY[3] => colorData[7][0][2].CLK
+KEY[3] => colorData[7][1][0].CLK
+KEY[3] => colorData[7][1][1].CLK
+KEY[3] => colorData[7][1][2].CLK
+KEY[3] => colorData[7][2][0].CLK
+KEY[3] => colorData[7][2][1].CLK
+KEY[3] => colorData[7][2][2].CLK
+KEY[3] => colorData[7][3][0].CLK
+KEY[3] => colorData[7][3][1].CLK
+KEY[3] => colorData[7][3][2].CLK
+KEY[3] => colorData[7][4][0].CLK
+KEY[3] => colorData[7][4][1].CLK
+KEY[3] => colorData[7][4][2].CLK
+KEY[3] => colorData[7][5][0].CLK
+KEY[3] => colorData[7][5][1].CLK
+KEY[3] => colorData[7][5][2].CLK
+KEY[3] => colorData[7][6][0].CLK
+KEY[3] => colorData[7][6][1].CLK
+KEY[3] => colorData[7][6][2].CLK
+KEY[3] => colorData[7][7][0].CLK
+KEY[3] => colorData[7][7][1].CLK
+KEY[3] => colorData[7][7][2].CLK
+HCS[0] => Mux0.IN2
+HCS[0] => Mux1.IN2
+HCS[0] => Mux2.IN2
+HCS[0] => Mux3.IN2
+HCS[0] => Mux4.IN2
+HCS[0] => Mux5.IN2
+HCS[0] => Mux6.IN2
+HCS[0] => Mux7.IN2
+HCS[0] => Mux9.IN2
+HCS[0] => Mux10.IN2
+HCS[0] => Mux11.IN2
+HCS[0] => Mux12.IN2
+HCS[0] => Mux13.IN2
+HCS[0] => Mux14.IN2
+HCS[0] => Mux15.IN2
+HCS[0] => Mux16.IN2
+HCS[0] => Mux18.IN2
+HCS[0] => Mux19.IN2
+HCS[0] => Mux20.IN2
+HCS[0] => Mux21.IN2
+HCS[0] => Mux22.IN2
+HCS[0] => Mux23.IN2
+HCS[0] => Mux24.IN2
+HCS[0] => Mux25.IN2
+HCS[1] => Mux0.IN1
+HCS[1] => Mux1.IN1
+HCS[1] => Mux2.IN1
+HCS[1] => Mux3.IN1
+HCS[1] => Mux4.IN1
+HCS[1] => Mux5.IN1
+HCS[1] => Mux6.IN1
+HCS[1] => Mux7.IN1
+HCS[1] => Mux9.IN1
+HCS[1] => Mux10.IN1
+HCS[1] => Mux11.IN1
+HCS[1] => Mux12.IN1
+HCS[1] => Mux13.IN1
+HCS[1] => Mux14.IN1
+HCS[1] => Mux15.IN1
+HCS[1] => Mux16.IN1
+HCS[1] => Mux18.IN1
+HCS[1] => Mux19.IN1
+HCS[1] => Mux20.IN1
+HCS[1] => Mux21.IN1
+HCS[1] => Mux22.IN1
+HCS[1] => Mux23.IN1
+HCS[1] => Mux24.IN1
+HCS[1] => Mux25.IN1
+HCS[2] => Mux0.IN0
+HCS[2] => Mux1.IN0
+HCS[2] => Mux2.IN0
+HCS[2] => Mux3.IN0
+HCS[2] => Mux4.IN0
+HCS[2] => Mux5.IN0
+HCS[2] => Mux6.IN0
+HCS[2] => Mux7.IN0
+HCS[2] => Mux9.IN0
+HCS[2] => Mux10.IN0
+HCS[2] => Mux11.IN0
+HCS[2] => Mux12.IN0
+HCS[2] => Mux13.IN0
+HCS[2] => Mux14.IN0
+HCS[2] => Mux15.IN0
+HCS[2] => Mux16.IN0
+HCS[2] => Mux18.IN0
+HCS[2] => Mux19.IN0
+HCS[2] => Mux20.IN0
+HCS[2] => Mux21.IN0
+HCS[2] => Mux22.IN0
+HCS[2] => Mux23.IN0
+HCS[2] => Mux24.IN0
+HCS[2] => Mux25.IN0
+VCS[0] => Mux8.IN10
+VCS[0] => Mux17.IN10
+VCS[0] => Mux26.IN10
+VCS[1] => Mux8.IN9
+VCS[1] => Mux17.IN9
+VCS[1] => Mux26.IN9
+VCS[2] => Mux8.IN8
+VCS[2] => Mux17.IN8
+VCS[2] => Mux26.IN8
+R <= Mux8.DB_MAX_OUTPUT_PORT_TYPE
+G <= Mux17.DB_MAX_OUTPUT_PORT_TYPE
+B <= Mux26.DB_MAX_OUTPUT_PORT_TYPE
 
 

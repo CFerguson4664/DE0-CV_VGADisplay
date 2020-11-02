@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VGADisplay
-Mon Nov 02 13:52:26 2020
+Mon Nov 02 15:37:15 2020
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -13,18 +13,21 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |VGADisplay|ColorFSM:s5|pState
-  9. State Machine - |VGADisplay|VerticalStateFSM:s3|pState
- 10. State Machine - |VGADisplay|HorizontalStateFSM:s1|pState
- 11. Registers Removed During Synthesis
- 12. General Register Statistics
- 13. Parameter Settings for User Entity Instance: HorizontalStateFSM:s1
- 14. Parameter Settings for User Entity Instance: VerticalStateFSM:s3
- 15. Parameter Settings for User Entity Instance: ColorFSM:s5
- 16. Port Connectivity Checks: "JKFlipFlopAResetComp:comb_3"
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+  8. State Machine - |VGADisplay|VerticalColorStateFSM:s5|pState
+  9. State Machine - |VGADisplay|VerticalStateFSM:s4|pState
+ 10. State Machine - |VGADisplay|HorizontalColorStateFSM:s2|pState
+ 11. State Machine - |VGADisplay|HorizontalStateFSM:s1|pState
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: HorizontalStateFSM:s1
+ 16. Parameter Settings for User Entity Instance: HorizontalColorStateFSM:s2
+ 17. Parameter Settings for User Entity Instance: VerticalStateFSM:s4
+ 18. Parameter Settings for User Entity Instance: VerticalColorStateFSM:s5
+ 19. Port Connectivity Checks: "JKFlipFlopAResetComp:comb_3"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -51,14 +54,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov 02 13:52:26 2020       ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov 02 15:37:15 2020       ;
 ; Quartus Prime Version           ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                   ; VGADisplay                                  ;
 ; Top-level Entity Name           ; VGADisplay                                  ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 47                                          ;
-; Total pins                      ; 15                                          ;
+; Total registers                 ; 237                                         ;
+; Total pins                      ; 29                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -176,131 +179,113 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                        ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                          ; Library ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------+---------+
-; sync800Comp.v                    ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/sync800Comp.v              ;         ;
-; sync525Comp.v                    ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/sync525Comp.v              ;         ;
-; HorizontalStateFSM.v             ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/HorizontalStateFSM.v       ;         ;
-; VGADisplay.v                     ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v               ;         ;
-; JKFlipFlopAResetComp.v           ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/JKFlipFlopAResetComp.v     ;         ;
-; DFlipFlopAResetComp.v            ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/DFlipFlopAResetComp.v      ;         ;
-; VerticalStateFSM.v               ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VerticalStateFSM.v         ;         ;
-; ColorFSM.v                       ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ColorFSM.v                 ;         ;
-; output_files/sync420Comp.v       ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/output_files/sync420Comp.v ;         ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                         ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+; sync800Comp.v                    ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/sync800Comp.v             ;         ;
+; sync525Comp.v                    ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/sync525Comp.v             ;         ;
+; HorizontalStateFSM.v             ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/HorizontalStateFSM.v      ;         ;
+; VGADisplay.v                     ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v              ;         ;
+; JKFlipFlopAResetComp.v           ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/JKFlipFlopAResetComp.v    ;         ;
+; DFlipFlopAResetComp.v            ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/DFlipFlopAResetComp.v     ;         ;
+; VerticalStateFSM.v               ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VerticalStateFSM.v        ;         ;
+; HorizontalColorStateFSM.v        ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/HorizontalColorStateFSM.v ;         ;
+; VerticalColorStateFSM.v          ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VerticalColorStateFSM.v   ;         ;
+; ColorStorage.v                   ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ColorStorage.v            ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                         ;
-+---------------------------------------------+-------------------------------------------------------+
-; Resource                                    ; Usage                                                 ;
-+---------------------------------------------+-------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 54                                                    ;
-;                                             ;                                                       ;
-; Combinational ALUT usage for logic          ; 83                                                    ;
-;     -- 7 input functions                    ; 0                                                     ;
-;     -- 6 input functions                    ; 24                                                    ;
-;     -- 5 input functions                    ; 19                                                    ;
-;     -- 4 input functions                    ; 22                                                    ;
-;     -- <=3 input functions                  ; 18                                                    ;
-;                                             ;                                                       ;
-; Dedicated logic registers                   ; 47                                                    ;
-;                                             ;                                                       ;
-; I/O pins                                    ; 15                                                    ;
-;                                             ;                                                       ;
-; Total DSP Blocks                            ; 0                                                     ;
-;                                             ;                                                       ;
-; Maximum fan-out node                        ; JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q ;
-; Maximum fan-out                             ; 27                                                    ;
-; Total fan-out                               ; 523                                                   ;
-; Average fan-out                             ; 3.27                                                  ;
-+---------------------------------------------+-------------------------------------------------------+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 206          ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 219          ;
+;     -- 7 input functions                    ; 0            ;
+;     -- 6 input functions                    ; 150          ;
+;     -- 5 input functions                    ; 20           ;
+;     -- 4 input functions                    ; 31           ;
+;     -- <=3 input functions                  ; 18           ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 237          ;
+;                                             ;              ;
+; I/O pins                                    ; 29           ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; KEY[3]~input ;
+; Maximum fan-out                             ; 192          ;
+; Total fan-out                               ; 1896         ;
+; Average fan-out                             ; 3.69         ;
++---------------------------------------------+--------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                             ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+----------------------+--------------+
-; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                         ; Entity Name          ; Library Name ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+----------------------+--------------+
-; |VGADisplay                        ; 83 (3)              ; 47 (0)                    ; 0                 ; 0          ; 15   ; 0            ; |VGADisplay                                                                 ; VGADisplay           ; work         ;
-;    |ColorFSM:s5|                   ; 21 (21)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|ColorFSM:s5                                                     ; ColorFSM             ; work         ;
-;    |HorizontalStateFSM:s1|         ; 12 (12)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|HorizontalStateFSM:s1                                           ; HorizontalStateFSM   ; work         ;
-;    |JKFlipFlopAResetComp:comb_3|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|JKFlipFlopAResetComp:comb_3                                     ; JKFlipFlopAResetComp ; work         ;
-;       |DFlipFlopAResetComp:ff0|    ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0             ; DFlipFlopAResetComp  ; work         ;
-;    |VerticalStateFSM:s3|           ; 11 (11)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|VerticalStateFSM:s3                                             ; VerticalStateFSM     ; work         ;
-;    |sync420Comp:s4|                ; 12 (2)              ; 10 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4                                                  ; sync420Comp          ; work         ;
-;       |JKFlipFlopAResetComp:FF0|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF0                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF0|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF1|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF1                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF1|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF2|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF2                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF2|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF3|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF3                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF3|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF4|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF4                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF4|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF5|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF5                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF5|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF6|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF6                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF6|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF7|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF7                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF7|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF8|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF8                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF8|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF9|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF9                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync420Comp:s4|JKFlipFlopAResetComp:FF9|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;    |sync525Comp:s2|                ; 12 (2)              ; 10 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2                                                  ; sync525Comp          ; work         ;
-;       |JKFlipFlopAResetComp:FF0|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF0                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF0|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF1|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF1                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF1|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF2|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF2                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF2|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF3|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF3                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF3|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF4|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF4                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF4|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF5|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF5                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF5|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF6|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF6                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF6|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF7|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF7                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF7|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF8|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF8                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF8|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF9|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF9                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s2|JKFlipFlopAResetComp:FF9|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;    |sync800Comp:s0|                ; 11 (1)              ; 10 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0                                                  ; sync800Comp          ; work         ;
-;       |JKFlipFlopAResetComp:FF0|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF0                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF0|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF1|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF1                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF1|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF2|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF2                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF2|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF3|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF3                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF3|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF4|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF4                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF4|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF5|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF5                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF5|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF6|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF6                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF6|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF7|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF7                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF7|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF8|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF8                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF8|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-;       |JKFlipFlopAResetComp:FF9|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF9                         ; JKFlipFlopAResetComp ; work         ;
-;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF9|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp  ; work         ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+----------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+-------------------------+--------------+
+; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                         ; Entity Name             ; Library Name ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+-------------------------+--------------+
+; |VGADisplay                        ; 219 (69)            ; 237 (0)                   ; 0                 ; 0          ; 29   ; 0            ; |VGADisplay                                                                 ; VGADisplay              ; work         ;
+;    |ColorStorage:comb_4|           ; 64 (64)             ; 192 (192)                 ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|ColorStorage:comb_4                                             ; ColorStorage            ; work         ;
+;    |HorizontalColorStateFSM:s2|    ; 25 (25)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|HorizontalColorStateFSM:s2                                      ; HorizontalColorStateFSM ; work         ;
+;    |HorizontalStateFSM:s1|         ; 5 (5)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|HorizontalStateFSM:s1                                           ; HorizontalStateFSM      ; work         ;
+;    |JKFlipFlopAResetComp:comb_3|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|JKFlipFlopAResetComp:comb_3                                     ; JKFlipFlopAResetComp    ; work         ;
+;       |DFlipFlopAResetComp:ff0|    ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0             ; DFlipFlopAResetComp     ; work         ;
+;    |VerticalColorStateFSM:s5|      ; 22 (22)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|VerticalColorStateFSM:s5                                        ; VerticalColorStateFSM   ; work         ;
+;    |VerticalStateFSM:s4|           ; 8 (8)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|VerticalStateFSM:s4                                             ; VerticalStateFSM        ; work         ;
+;    |sync525Comp:s3|                ; 12 (2)              ; 10 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3                                                  ; sync525Comp             ; work         ;
+;       |JKFlipFlopAResetComp:FF0|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF0                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF0|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF1|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF1                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF1|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF2|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF2                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF2|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF3|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF3                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF3|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF4|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF4                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF4|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF5|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF5                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF5|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF6|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF6                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF6|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF7|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF7                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF7|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF8|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF8                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF8|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF9|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF9                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync525Comp:s3|JKFlipFlopAResetComp:FF9|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;    |sync800Comp:s0|                ; 13 (3)              ; 10 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0                                                  ; sync800Comp             ; work         ;
+;       |JKFlipFlopAResetComp:FF0|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF0                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF0|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF1|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF1                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF1|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF2|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF2                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF2|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF3|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF3                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF3|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF4|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF4                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF4|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF5|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF5                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF5|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF6|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF6                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF6|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF7|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF7                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF7|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF8|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF8                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF8|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
+;       |JKFlipFlopAResetComp:FF9|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF9                         ; JKFlipFlopAResetComp    ; work         ;
+;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF9|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------------------------+
-; State Machine - |VGADisplay|ColorFSM:s5|pState                                                            ;
+; State Machine - |VGADisplay|VerticalColorStateFSM:s5|pState                                               ;
 +-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
 ; Name      ; pState.S7 ; pState.S6 ; pState.S5 ; pState.S4 ; pState.S3 ; pState.S2 ; pState.S1 ; pState.S0 ;
 +-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
@@ -317,7 +302,7 @@ Encoding Type:  One-Hot
 
 Encoding Type:  One-Hot
 +-----------------------------------------------------------+
-; State Machine - |VGADisplay|VerticalStateFSM:s3|pState    ;
+; State Machine - |VGADisplay|VerticalStateFSM:s4|pState    ;
 +-----------+-----------+-----------+-----------+-----------+
 ; Name      ; pState.S3 ; pState.S2 ; pState.S1 ; pState.S0 ;
 +-----------+-----------+-----------+-----------+-----------+
@@ -326,6 +311,23 @@ Encoding Type:  One-Hot
 ; pState.S2 ; 0         ; 1         ; 0         ; 1         ;
 ; pState.S3 ; 1         ; 0         ; 0         ; 1         ;
 +-----------+-----------+-----------+-----------+-----------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------+
+; State Machine - |VGADisplay|HorizontalColorStateFSM:s2|pState                                             ;
++-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+; Name      ; pState.S7 ; pState.S6 ; pState.S5 ; pState.S4 ; pState.S3 ; pState.S2 ; pState.S1 ; pState.S0 ;
++-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+; pState.S0 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ;
+; pState.S1 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 1         ;
+; pState.S2 ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 1         ;
+; pState.S3 ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 1         ;
+; pState.S4 ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 1         ;
+; pState.S5 ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; pState.S6 ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; pState.S7 ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
++-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
 
 
 Encoding Type:  One-Hot
@@ -341,21 +343,23 @@ Encoding Type:  One-Hot
 +-----------+-----------+-----------+-----------+-----------+
 
 
-+------------------------------------------------------------+
-; Registers Removed During Synthesis                         ;
-+---------------------------------------+--------------------+
-; Register name                         ; Reason for Removal ;
-+---------------------------------------+--------------------+
-; ColorFSM:s5|pState~2                  ; Lost fanout        ;
-; ColorFSM:s5|pState~3                  ; Lost fanout        ;
-; ColorFSM:s5|pState~4                  ; Lost fanout        ;
-; ColorFSM:s5|pState~5                  ; Lost fanout        ;
-; VerticalStateFSM:s3|pState~2          ; Lost fanout        ;
-; VerticalStateFSM:s3|pState~3          ; Lost fanout        ;
-; HorizontalStateFSM:s1|pState~2        ; Lost fanout        ;
-; HorizontalStateFSM:s1|pState~3        ; Lost fanout        ;
-; Total Number of Removed Registers = 8 ;                    ;
-+---------------------------------------+--------------------+
++-------------------------------------------------------------+
+; Registers Removed During Synthesis                          ;
++----------------------------------------+--------------------+
+; Register name                          ; Reason for Removal ;
++----------------------------------------+--------------------+
+; VerticalColorStateFSM:s5|pState~2      ; Lost fanout        ;
+; VerticalColorStateFSM:s5|pState~3      ; Lost fanout        ;
+; VerticalColorStateFSM:s5|pState~4      ; Lost fanout        ;
+; VerticalStateFSM:s4|pState~2           ; Lost fanout        ;
+; VerticalStateFSM:s4|pState~3           ; Lost fanout        ;
+; HorizontalColorStateFSM:s2|pState~2    ; Lost fanout        ;
+; HorizontalColorStateFSM:s2|pState~3    ; Lost fanout        ;
+; HorizontalColorStateFSM:s2|pState~4    ; Lost fanout        ;
+; HorizontalStateFSM:s1|pState~2         ; Lost fanout        ;
+; HorizontalStateFSM:s1|pState~3         ; Lost fanout        ;
+; Total Number of Removed Registers = 10 ;                    ;
++----------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -363,14 +367,23 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 47    ;
+; Total registers                              ; 237   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 30    ;
+; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 192   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 65:1               ; 3 bits    ; 129 LEs       ; 129 LEs              ; 0 LEs                  ; No         ; |VGADisplay|VGA_R          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +--------------------------------------------------------------------+
@@ -386,8 +399,25 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: HorizontalColorStateFSM:s2 ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; S0             ; 0     ; Signed Integer                                 ;
+; S1             ; 1     ; Signed Integer                                 ;
+; S2             ; 2     ; Signed Integer                                 ;
+; S3             ; 3     ; Signed Integer                                 ;
+; S4             ; 4     ; Signed Integer                                 ;
+; S5             ; 5     ; Signed Integer                                 ;
+; S6             ; 6     ; Signed Integer                                 ;
+; S7             ; 7     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: VerticalStateFSM:s3 ;
+; Parameter Settings for User Entity Instance: VerticalStateFSM:s4 ;
 +----------------+-------+-----------------------------------------+
 ; Parameter Name ; Value ; Type                                    ;
 +----------------+-------+-----------------------------------------+
@@ -399,20 +429,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ColorFSM:s5 ;
-+----------------+-------+---------------------------------+
-; Parameter Name ; Value ; Type                            ;
-+----------------+-------+---------------------------------+
-; S0             ; 0     ; Signed Integer                  ;
-; S1             ; 1     ; Signed Integer                  ;
-; S2             ; 2     ; Signed Integer                  ;
-; S3             ; 3     ; Signed Integer                  ;
-; S4             ; 4     ; Signed Integer                  ;
-; S5             ; 5     ; Signed Integer                  ;
-; S6             ; 6     ; Signed Integer                  ;
-; S7             ; 7     ; Signed Integer                  ;
-+----------------+-------+---------------------------------+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: VerticalColorStateFSM:s5 ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; S0             ; 0     ; Signed Integer                               ;
+; S1             ; 1     ; Signed Integer                               ;
+; S2             ; 2     ; Signed Integer                               ;
+; S3             ; 3     ; Signed Integer                               ;
+; S4             ; 4     ; Signed Integer                               ;
+; S5             ; 5     ; Signed Integer                               ;
+; S6             ; 6     ; Signed Integer                               ;
+; S7             ; 7     ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -435,21 +465,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 47                          ;
-;     CLR               ; 30                          ;
-;     plain             ; 17                          ;
-; arriav_lcell_comb     ; 83                          ;
-;     normal            ; 83                          ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 3                           ;
-;         3 data inputs ; 11                          ;
-;         4 data inputs ; 22                          ;
-;         5 data inputs ; 19                          ;
-;         6 data inputs ; 24                          ;
-; boundary_port         ; 15                          ;
+; arriav_ff             ; 237                         ;
+;     CLR               ; 20                          ;
+;     ENA               ; 192                         ;
+;     plain             ; 25                          ;
+; arriav_lcell_comb     ; 219                         ;
+;     normal            ; 219                         ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 10                          ;
+;         4 data inputs ; 31                          ;
+;         5 data inputs ; 20                          ;
+;         6 data inputs ; 150                         ;
+; boundary_port         ; 29                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 2.03                        ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 3.02                        ;
 +-----------------------+-----------------------------+
 
 
@@ -468,7 +499,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Mon Nov 02 13:52:15 2020
+    Info: Processing started: Mon Nov 02 15:37:05 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGADisplay -c VGADisplay
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -490,24 +521,33 @@ Info (12021): Found 1 design units, including 1 entities, in source file colorfs
     Info (12023): Found entity 1: ColorFSM File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ColorFSM.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/sync420comp.v
     Info (12023): Found entity 1: sync420Comp File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/output_files/sync420Comp.v Line: 1
-Critical Warning (10846): Verilog HDL Instantiation warning at VGADisplay.v(10): instance has no name File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 10
+Info (12021): Found 1 design units, including 1 entities, in source file horizontalcolorstatefsm.v
+    Info (12023): Found entity 1: HorizontalColorStateFSM File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/HorizontalColorStateFSM.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file verticalcolorstatefsm.v
+    Info (12023): Found entity 1: VerticalColorStateFSM File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VerticalColorStateFSM.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file colorstorage.v
+    Info (12023): Found entity 1: ColorStorage File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ColorStorage.v Line: 1
+Critical Warning (10846): Verilog HDL Instantiation warning at VGADisplay.v(15): instance has no name File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 15
+Critical Warning (10846): Verilog HDL Instantiation warning at VGADisplay.v(29): instance has no name File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 29
 Info (12127): Elaborating entity "VGADisplay" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at VGADisplay.v(25): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 25
-Warning (10230): Verilog HDL assignment warning at VGADisplay.v(26): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 26
-Warning (10230): Verilog HDL assignment warning at VGADisplay.v(27): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 27
-Info (12128): Elaborating entity "JKFlipFlopAResetComp" for hierarchy "JKFlipFlopAResetComp:comb_3" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 10
+Warning (10230): Verilog HDL assignment warning at VGADisplay.v(38): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 38
+Warning (10230): Verilog HDL assignment warning at VGADisplay.v(39): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 39
+Warning (10230): Verilog HDL assignment warning at VGADisplay.v(40): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 40
+Info (12128): Elaborating entity "JKFlipFlopAResetComp" for hierarchy "JKFlipFlopAResetComp:comb_3" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 15
 Info (12128): Elaborating entity "DFlipFlopAResetComp" for hierarchy "JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/JKFlipFlopAResetComp.v Line: 8
-Info (12128): Elaborating entity "sync800Comp" for hierarchy "sync800Comp:s0" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 12
-Info (12128): Elaborating entity "HorizontalStateFSM" for hierarchy "HorizontalStateFSM:s1" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 13
+Info (12128): Elaborating entity "sync800Comp" for hierarchy "sync800Comp:s0" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 17
+Info (12128): Elaborating entity "HorizontalStateFSM" for hierarchy "HorizontalStateFSM:s1" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 18
 Warning (10230): Verilog HDL assignment warning at HorizontalStateFSM.v(47): truncated value with size 32 to match size of target (1) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/HorizontalStateFSM.v Line: 47
-Info (12128): Elaborating entity "sync525Comp" for hierarchy "sync525Comp:s2" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 15
-Info (12128): Elaborating entity "VerticalStateFSM" for hierarchy "VerticalStateFSM:s3" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 16
+Info (12128): Elaborating entity "HorizontalColorStateFSM" for hierarchy "HorizontalColorStateFSM:s2" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 19
+Info (12128): Elaborating entity "sync525Comp" for hierarchy "sync525Comp:s3" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 21
+Info (12128): Elaborating entity "VerticalStateFSM" for hierarchy "VerticalStateFSM:s4" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 22
 Warning (10230): Verilog HDL assignment warning at VerticalStateFSM.v(47): truncated value with size 32 to match size of target (1) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VerticalStateFSM.v Line: 47
-Info (12128): Elaborating entity "sync420Comp" for hierarchy "sync420Comp:s4" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 18
-Info (12128): Elaborating entity "ColorFSM" for hierarchy "ColorFSM:s5" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 19
+Info (12128): Elaborating entity "VerticalColorStateFSM" for hierarchy "VerticalColorStateFSM:s5" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 23
+Info (12128): Elaborating entity "ColorStorage" for hierarchy "ColorStorage:comb_4" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 29
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "colorData" into its bus
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 8 registers lost all their fanouts during netlist optimizations.
+Info (17049): 10 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK3_50 -entity DE0_CV_Default was ignored
@@ -741,14 +781,19 @@ Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity d
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE0_CV_Default -section_id Top was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 98 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 4
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 3
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 3
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 3
+Info (21057): Implemented 440 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
     Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 83 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 239 warnings
-    Info: Peak virtual memory: 4822 megabytes
-    Info: Processing ended: Mon Nov 02 13:52:26 2020
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:19
+    Info (21061): Implemented 411 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 245 warnings
+    Info: Peak virtual memory: 4826 megabytes
+    Info: Processing ended: Mon Nov 02 15:37:15 2020
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:20
 
 

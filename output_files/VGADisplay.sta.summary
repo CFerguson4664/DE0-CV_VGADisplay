@@ -3,291 +3,227 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1100mV 85C Model Setup 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : -4.570
-TNS   : -94.230
+Slack : -4.463
+TNS   : -136.865
 
 Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
-Slack : -3.513
-TNS   : -3.513
+Slack : -3.557
+TNS   : -3.557
 
 Type  : Slow 1100mV 85C Model Setup 'HorizontalStateFSM:s1|pState.S0'
-Slack : -3.250
-TNS   : -36.569
-
-Type  : Slow 1100mV 85C Model Setup 'VerticalStateFSM:s3|pState.S0'
-Slack : -2.556
-TNS   : -32.851
-
-Type  : Slow 1100mV 85C Model Hold 'HorizontalStateFSM:s1|pState.S0'
-Slack : 0.379
-TNS   : 0.000
+Slack : -2.924
+TNS   : -36.380
 
 Type  : Slow 1100mV 85C Model Hold 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : 0.480
+Slack : 0.146
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Hold 'VerticalStateFSM:s3|pState.S0'
-Slack : 0.637
+Type  : Slow 1100mV 85C Model Hold 'HorizontalStateFSM:s1|pState.S0'
+Slack : 0.867
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
-Slack : 1.226
+Slack : 1.041
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Recovery 'HorizontalStateFSM:s1|pState.S0'
-Slack : -2.542
-TNS   : -40.610
-
-Type  : Slow 1100mV 85C Model Recovery 'VerticalStateFSM:s3|pState.S0'
-Slack : -2.508
-TNS   : -37.577
+Slack : -2.770
+TNS   : -38.752
 
 Type  : Slow 1100mV 85C Model Recovery 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : -2.481
-TNS   : -34.723
+Slack : -2.302
+TNS   : -29.876
 
 Type  : Slow 1100mV 85C Model Removal 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : 1.231
-TNS   : 0.000
-
-Type  : Slow 1100mV 85C Model Removal 'VerticalStateFSM:s3|pState.S0'
-Slack : 1.338
+Slack : 0.987
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Removal 'HorizontalStateFSM:s1|pState.S0'
-Slack : 1.382
+Slack : 1.527
 TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'KEY[3]'
+Slack : -0.538
+TNS   : -157.171
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
 Slack : -0.538
-TNS   : -23.544
+TNS   : -32.415
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'HorizontalStateFSM:s1|pState.S0'
 Slack : -0.538
-TNS   : -12.907
-
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VerticalStateFSM:s3|pState.S0'
-Slack : -0.538
-TNS   : -12.072
+TNS   : -10.877
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -0.538
-TNS   : -1.041
+TNS   : -0.907
 
 Type  : Slow 1100mV 0C Model Setup 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : -4.475
-TNS   : -93.930
-
-Type  : Slow 1100mV 0C Model Setup 'HorizontalStateFSM:s1|pState.S0'
-Slack : -3.263
-TNS   : -35.958
+Slack : -4.453
+TNS   : -136.346
 
 Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
-Slack : -3.230
-TNS   : -3.230
+Slack : -3.350
+TNS   : -3.350
 
-Type  : Slow 1100mV 0C Model Setup 'VerticalStateFSM:s3|pState.S0'
-Slack : -2.595
-TNS   : -32.438
-
-Type  : Slow 1100mV 0C Model Hold 'HorizontalStateFSM:s1|pState.S0'
-Slack : 0.477
-TNS   : 0.000
+Type  : Slow 1100mV 0C Model Setup 'HorizontalStateFSM:s1|pState.S0'
+Slack : -2.869
+TNS   : -35.729
 
 Type  : Slow 1100mV 0C Model Hold 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : 0.569
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Hold 'VerticalStateFSM:s3|pState.S0'
-Slack : 0.652
+Slack : 0.218
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
-Slack : 1.016
+Slack : 0.910
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'HorizontalStateFSM:s1|pState.S0'
+Slack : 0.910
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Recovery 'HorizontalStateFSM:s1|pState.S0'
-Slack : -2.424
-TNS   : -38.739
+Slack : -2.753
+TNS   : -38.497
 
 Type  : Slow 1100mV 0C Model Recovery 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : -2.369
-TNS   : -33.146
-
-Type  : Slow 1100mV 0C Model Recovery 'VerticalStateFSM:s3|pState.S0'
-Slack : -2.365
-TNS   : -35.423
+Slack : -2.149
+TNS   : -27.893
 
 Type  : Slow 1100mV 0C Model Removal 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : 1.279
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Removal 'VerticalStateFSM:s3|pState.S0'
-Slack : 1.300
+Slack : 0.972
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Removal 'HorizontalStateFSM:s1|pState.S0'
-Slack : 1.402
+Slack : 1.555
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.555
-TNS   : -1.093
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'KEY[3]'
+Slack : -0.538
+TNS   : -152.813
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
 Slack : -0.538
-TNS   : -23.430
+TNS   : -31.828
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'HorizontalStateFSM:s1|pState.S0'
 Slack : -0.538
-TNS   : -12.905
+TNS   : -10.916
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VerticalStateFSM:s3|pState.S0'
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -0.538
-TNS   : -12.044
+TNS   : -0.932
 
 Type  : Fast 1100mV 85C Model Setup 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : -2.291
-TNS   : -40.996
+Slack : -2.210
+TNS   : -62.033
 
 Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
-Slack : -2.079
-TNS   : -2.079
+Slack : -1.980
+TNS   : -1.980
 
 Type  : Fast 1100mV 85C Model Setup 'HorizontalStateFSM:s1|pState.S0'
-Slack : -1.232
-TNS   : -12.440
-
-Type  : Fast 1100mV 85C Model Setup 'VerticalStateFSM:s3|pState.S0'
-Slack : -0.933
-TNS   : -10.844
+Slack : -1.258
+TNS   : -13.809
 
 Type  : Fast 1100mV 85C Model Hold 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : -0.044
-TNS   : -0.044
+Slack : -0.018
+TNS   : -0.022
 
 Type  : Fast 1100mV 85C Model Hold 'HorizontalStateFSM:s1|pState.S0'
-Slack : 0.157
-TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Hold 'VerticalStateFSM:s3|pState.S0'
-Slack : 0.346
+Slack : 0.453
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
-Slack : 0.826
+Slack : 0.639
 TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Recovery 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : -0.819
-TNS   : -11.449
-
-Type  : Fast 1100mV 85C Model Recovery 'VerticalStateFSM:s3|pState.S0'
-Slack : -0.813
-TNS   : -12.189
 
 Type  : Fast 1100mV 85C Model Recovery 'HorizontalStateFSM:s1|pState.S0'
-Slack : -0.794
-TNS   : -12.681
+Slack : -0.847
+TNS   : -11.840
+
+Type  : Fast 1100mV 85C Model Recovery 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
+Slack : -0.709
+TNS   : -9.198
 
 Type  : Fast 1100mV 85C Model Removal 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : 0.541
-TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Removal 'VerticalStateFSM:s3|pState.S0'
-Slack : 0.628
+Slack : 0.490
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Removal 'HorizontalStateFSM:s1|pState.S0'
-Slack : 0.656
+Slack : 0.695
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.471
-TNS   : -0.620
+Slack : -0.365
+TNS   : -0.412
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VerticalStateFSM:s3|pState.S0'
-Slack : -0.002
-TNS   : -0.009
-
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'HorizontalStateFSM:s1|pState.S0'
-Slack : 0.066
-TNS   : 0.000
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'KEY[3]'
+Slack : -0.262
+TNS   : -49.441
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : 0.084
+Slack : -0.015
+TNS   : -0.059
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'HorizontalStateFSM:s1|pState.S0'
+Slack : 0.145
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Setup 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : -2.068
-TNS   : -36.869
+Slack : -2.015
+TNS   : -56.080
 
 Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
-Slack : -1.669
-TNS   : -1.669
+Slack : -1.579
+TNS   : -1.579
 
 Type  : Fast 1100mV 0C Model Setup 'HorizontalStateFSM:s1|pState.S0'
-Slack : -1.072
-TNS   : -10.453
-
-Type  : Fast 1100mV 0C Model Setup 'VerticalStateFSM:s3|pState.S0'
-Slack : -0.790
-TNS   : -9.139
+Slack : -1.085
+TNS   : -11.780
 
 Type  : Fast 1100mV 0C Model Hold 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : -0.048
-TNS   : -0.048
-
-Type  : Fast 1100mV 0C Model Hold 'HorizontalStateFSM:s1|pState.S0'
-Slack : 0.160
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Hold 'VerticalStateFSM:s3|pState.S0'
-Slack : 0.322
-TNS   : 0.000
+Slack : -0.027
+TNS   : -0.046
 
 Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
-Slack : 0.523
+Slack : 0.373
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Recovery 'VerticalStateFSM:s3|pState.S0'
-Slack : -0.692
-TNS   : -10.361
-
-Type  : Fast 1100mV 0C Model Recovery 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : -0.692
-TNS   : -9.681
+Type  : Fast 1100mV 0C Model Hold 'HorizontalStateFSM:s1|pState.S0'
+Slack : 0.420
+TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Recovery 'HorizontalStateFSM:s1|pState.S0'
-Slack : -0.671
-TNS   : -10.718
+Slack : -0.734
+TNS   : -10.258
+
+Type  : Fast 1100mV 0C Model Recovery 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
+Slack : -0.581
+TNS   : -7.543
 
 Type  : Fast 1100mV 0C Model Removal 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : 0.500
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Removal 'VerticalStateFSM:s3|pState.S0'
-Slack : 0.571
+Slack : 0.438
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Removal 'HorizontalStateFSM:s1|pState.S0'
-Slack : 0.596
+Slack : 0.634
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.477
-TNS   : -0.625
+Slack : -0.383
+TNS   : -0.439
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VerticalStateFSM:s3|pState.S0'
-Slack : 0.012
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'KEY[3]'
+Slack : -0.267
+TNS   : -49.848
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
+Slack : 0.033
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'HorizontalStateFSM:s1|pState.S0'
-Slack : 0.080
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0|Q'
-Slack : 0.099
+Slack : 0.153
 TNS   : 0.000
 
 ------------------------------------------------------------

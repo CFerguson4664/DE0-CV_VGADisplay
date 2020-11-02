@@ -1,0 +1,23 @@
+module ColorStorage(SW,KEY,HCS,VCS,R,G,B);
+input [9:0] SW;
+input [3:0] KEY;
+input [1:0] HCS,VCS;
+output R,G,B;
+
+reg [2:0] colorData [0:1][0:1];
+
+always@(*)
+begin
+	R = colorData[VCS][HCS][0];
+	G = colorData[VCS][HCS][1];
+	B = colorData[VCS][HCS][2];
+end
+
+always@(negedge KEY[3])
+begin
+	colorData[{SW[3],SW[2]}][{SW[1],SW[0]}][0] = ~KEY[2];
+	colorData[{SW[3],SW[2]}][{SW[1],SW[0]}][1] = ~KEY[1];
+	colorData[{SW[3],SW[2]}][{SW[1],SW[0]}][2] = ~KEY[0];
+end
+
+endmodule

@@ -94,14 +94,6 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_LDQM -entity DE
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_RAS_N -entity DE0_CV_Default
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_UDQM -entity DE0_CV_Default
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_WE_N -entity DE0_CV_Default
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[0] -entity DE0_CV_Default
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[1] -entity DE0_CV_Default
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[2] -entity DE0_CV_Default
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[3] -entity DE0_CV_Default
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[4] -entity DE0_CV_Default
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[5] -entity DE0_CV_Default
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[6] -entity DE0_CV_Default
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[7] -entity DE0_CV_Default
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[8] -entity DE0_CV_Default
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[9] -entity DE0_CV_Default
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[10] -entity DE0_CV_Default
@@ -300,14 +292,6 @@ set_location_assignment PIN_U12 -to DRAM_LDQM
 set_location_assignment PIN_AB6 -to DRAM_RAS_N
 set_location_assignment PIN_N8 -to DRAM_UDQM
 set_location_assignment PIN_AB5 -to DRAM_WE_N
-set_location_assignment PIN_N16 -to GPIO_0[0]
-set_location_assignment PIN_B16 -to GPIO_0[1]
-set_location_assignment PIN_M16 -to GPIO_0[2]
-set_location_assignment PIN_C16 -to GPIO_0[3]
-set_location_assignment PIN_D17 -to GPIO_0[4]
-set_location_assignment PIN_K20 -to GPIO_0[5]
-set_location_assignment PIN_K21 -to GPIO_0[6]
-set_location_assignment PIN_K22 -to GPIO_0[7]
 set_location_assignment PIN_M20 -to GPIO_0[8]
 set_location_assignment PIN_M21 -to GPIO_0[9]
 set_location_assignment PIN_N21 -to GPIO_0[10]
@@ -481,4 +465,22 @@ set_global_assignment -name VERILOG_FILE output_files/sync420Comp.v
 set_global_assignment -name VERILOG_FILE HorizontalColorStateFSM.v
 set_global_assignment -name VERILOG_FILE VerticalColorStateFSM.v
 set_global_assignment -name VERILOG_FILE ColorStorage.v
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0In[0] -entity DE0_CV_Default
+set_location_assignment PIN_N16 -to GPIO_0In[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0In[1] -entity DE0_CV_Default
+set_location_assignment PIN_B16 -to GPIO_0In[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0In[2] -entity DE0_CV_Default
+set_location_assignment PIN_M16 -to GPIO_0In[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0In[3] -entity DE0_CV_Default
+set_location_assignment PIN_C16 -to GPIO_0In[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0Out[0] -entity DE0_CV_Default
+set_location_assignment PIN_D17 -to GPIO_0Out[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0Out[1] -entity DE0_CV_Default
+set_location_assignment PIN_K20 -to GPIO_0Out[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0Out[2] -entity DE0_CV_Default
+set_location_assignment PIN_K21 -to GPIO_0Out[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0Out[3] -entity DE0_CV_Default
+set_location_assignment PIN_K22 -to GPIO_0Out[3]
+set_global_assignment -name VERILOG_FILE ButtonMatrixFSM.v
+set_global_assignment -name VERILOG_FILE PriorityEncoder4to2.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

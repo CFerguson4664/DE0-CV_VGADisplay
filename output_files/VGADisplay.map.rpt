@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VGADisplay
-Mon Nov 02 15:37:15 2020
+Tue Nov 03 15:50:05 2020
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -13,21 +13,24 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |VGADisplay|VerticalColorStateFSM:s5|pState
-  9. State Machine - |VGADisplay|VerticalStateFSM:s4|pState
- 10. State Machine - |VGADisplay|HorizontalColorStateFSM:s2|pState
- 11. State Machine - |VGADisplay|HorizontalStateFSM:s1|pState
- 12. Registers Removed During Synthesis
- 13. General Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Parameter Settings for User Entity Instance: HorizontalStateFSM:s1
- 16. Parameter Settings for User Entity Instance: HorizontalColorStateFSM:s2
- 17. Parameter Settings for User Entity Instance: VerticalStateFSM:s4
- 18. Parameter Settings for User Entity Instance: VerticalColorStateFSM:s5
- 19. Port Connectivity Checks: "JKFlipFlopAResetComp:comb_3"
- 20. Post-Synthesis Netlist Statistics for Top Partition
- 21. Elapsed Time Per Partition
- 22. Analysis & Synthesis Messages
+  8. State Machine - |VGADisplay|ButtonMatrixFSM:comb_4|pState
+  9. State Machine - |VGADisplay|VerticalColorStateFSM:s5|pState
+ 10. State Machine - |VGADisplay|VerticalStateFSM:s4|pState
+ 11. State Machine - |VGADisplay|HorizontalColorStateFSM:s2|pState
+ 12. State Machine - |VGADisplay|HorizontalStateFSM:s1|pState
+ 13. User-Specified and Inferred Latches
+ 14. Registers Removed During Synthesis
+ 15. General Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Parameter Settings for User Entity Instance: HorizontalStateFSM:s1
+ 18. Parameter Settings for User Entity Instance: HorizontalColorStateFSM:s2
+ 19. Parameter Settings for User Entity Instance: VerticalStateFSM:s4
+ 20. Parameter Settings for User Entity Instance: VerticalColorStateFSM:s5
+ 21. Parameter Settings for User Entity Instance: ButtonMatrixFSM:comb_4
+ 22. Port Connectivity Checks: "JKFlipFlopAResetComp:comb_3"
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
 
 
 
@@ -54,14 +57,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov 02 15:37:15 2020       ;
+; Analysis & Synthesis Status     ; Successful - Tue Nov 03 15:50:05 2020       ;
 ; Quartus Prime Version           ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                   ; VGADisplay                                  ;
 ; Top-level Entity Name           ; VGADisplay                                  ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 237                                         ;
-; Total pins                      ; 29                                          ;
+; Total registers                 ; 440                                         ;
+; Total pins                      ; 47                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -194,34 +197,36 @@ https://fpgasoftware.intel.com/eula.
 ; HorizontalColorStateFSM.v        ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/HorizontalColorStateFSM.v ;         ;
 ; VerticalColorStateFSM.v          ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VerticalColorStateFSM.v   ;         ;
 ; ColorStorage.v                   ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ColorStorage.v            ;         ;
+; ButtonMatrixFSM.v                ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v         ;         ;
+; PriorityEncoder4to2.v            ; yes             ; User Verilog HDL File  ; C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/PriorityEncoder4to2.v     ;         ;
 +----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                ;
-+---------------------------------------------+--------------+
-; Resource                                    ; Usage        ;
-+---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 206          ;
-;                                             ;              ;
-; Combinational ALUT usage for logic          ; 219          ;
-;     -- 7 input functions                    ; 0            ;
-;     -- 6 input functions                    ; 150          ;
-;     -- 5 input functions                    ; 20           ;
-;     -- 4 input functions                    ; 31           ;
-;     -- <=3 input functions                  ; 18           ;
-;                                             ;              ;
-; Dedicated logic registers                   ; 237          ;
-;                                             ;              ;
-; I/O pins                                    ; 29           ;
-;                                             ;              ;
-; Total DSP Blocks                            ; 0            ;
-;                                             ;              ;
-; Maximum fan-out node                        ; KEY[3]~input ;
-; Maximum fan-out                             ; 192          ;
-; Total fan-out                               ; 1896         ;
-; Average fan-out                             ; 3.69         ;
-+---------------------------------------------+--------------+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                            ;
++---------------------------------------------+--------------------------+
+; Resource                                    ; Usage                    ;
++---------------------------------------------+--------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 331                      ;
+;                                             ;                          ;
+; Combinational ALUT usage for logic          ; 311                      ;
+;     -- 7 input functions                    ; 0                        ;
+;     -- 6 input functions                    ; 199                      ;
+;     -- 5 input functions                    ; 31                       ;
+;     -- 4 input functions                    ; 42                       ;
+;     -- <=3 input functions                  ; 39                       ;
+;                                             ;                          ;
+; Dedicated logic registers                   ; 440                      ;
+;                                             ;                          ;
+; I/O pins                                    ; 47                       ;
+;                                             ;                          ;
+; Total DSP Blocks                            ; 0                        ;
+;                                             ;                          ;
+; Maximum fan-out node                        ; ButtonMatrixFSM:comb_4|Y ;
+; Maximum fan-out                             ; 386                      ;
+; Total fan-out                               ; 2964                     ;
+; Average fan-out                             ; 3.51                     ;
++---------------------------------------------+--------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -229,8 +234,11 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                         ; Entity Name             ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+-------------------------+--------------+
-; |VGADisplay                        ; 219 (69)            ; 237 (0)                   ; 0                 ; 0          ; 29   ; 0            ; |VGADisplay                                                                 ; VGADisplay              ; work         ;
-;    |ColorStorage:comb_4|           ; 64 (64)             ; 192 (192)                 ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|ColorStorage:comb_4                                             ; ColorStorage            ; work         ;
+; |VGADisplay                        ; 311 (136)           ; 440 (0)                   ; 0                 ; 0          ; 47   ; 0            ; |VGADisplay                                                                 ; VGADisplay              ; work         ;
+;    |ButtonMatrixFSM:comb_4|        ; 25 (22)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|ButtonMatrixFSM:comb_4                                          ; ButtonMatrixFSM         ; work         ;
+;       |PriorityEncoder4to2:e0|     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|ButtonMatrixFSM:comb_4|PriorityEncoder4to2:e0                   ; PriorityEncoder4to2     ; work         ;
+;       |PriorityEncoder4to2:e1|     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|ButtonMatrixFSM:comb_4|PriorityEncoder4to2:e1                   ; PriorityEncoder4to2     ; work         ;
+;    |ColorStorage:comb_11|          ; 64 (64)             ; 384 (384)                 ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|ColorStorage:comb_11                                            ; ColorStorage            ; work         ;
 ;    |HorizontalColorStateFSM:s2|    ; 25 (25)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|HorizontalColorStateFSM:s2                                      ; HorizontalColorStateFSM ; work         ;
 ;    |HorizontalStateFSM:s1|         ; 5 (5)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|HorizontalStateFSM:s1                                           ; HorizontalStateFSM      ; work         ;
 ;    |JKFlipFlopAResetComp:comb_3|   ; 1 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|JKFlipFlopAResetComp:comb_3                                     ; JKFlipFlopAResetComp    ; work         ;
@@ -281,6 +289,26 @@ https://fpgasoftware.intel.com/eula.
 ;          |DFlipFlopAResetComp:ff0| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGADisplay|sync800Comp:s0|JKFlipFlopAResetComp:FF9|DFlipFlopAResetComp:ff0 ; DFlipFlopAResetComp     ; work         ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |VGADisplay|ButtonMatrixFSM:comb_4|pState                                                                                       ;
++------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+; Name       ; pState.S10 ; pState.S9 ; pState.S8 ; pState.S7 ; pState.S6 ; pState.S5 ; pState.S4 ; pState.S3 ; pState.S2 ; pState.S1 ; pState.S0 ;
++------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+; pState.S0  ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ;
+; pState.S1  ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 1         ;
+; pState.S2  ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 1         ;
+; pState.S3  ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 1         ;
+; pState.S4  ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 1         ;
+; pState.S5  ; 0          ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; pState.S6  ; 0          ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; pState.S7  ; 0          ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; pState.S8  ; 0          ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; pState.S9  ; 0          ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; pState.S10 ; 1          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
++------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
 
 
 Encoding Type:  One-Hot
@@ -343,11 +371,33 @@ Encoding Type:  One-Hot
 +-----------+-----------+-----------+-----------+-----------+
 
 
++----------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                            ;
++----------------------------------------------------+----------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal              ; Free of Timing Hazards ;
++----------------------------------------------------+----------------------------------+------------------------+
+; ButtonMatrixFSM:comb_4|Y                           ; GND                              ; yes                    ;
+; ButtonMatrixFSM:comb_4|rawH[3]                     ; ButtonMatrixFSM:comb_4|Selector7 ; yes                    ;
+; ButtonMatrixFSM:comb_4|rawH[1]                     ; ButtonMatrixFSM:comb_4|Selector7 ; yes                    ;
+; ButtonMatrixFSM:comb_4|rawH[2]                     ; ButtonMatrixFSM:comb_4|Selector7 ; yes                    ;
+; ButtonMatrixFSM:comb_4|rawV[3]                     ; ButtonMatrixFSM:comb_4|Selector7 ; yes                    ;
+; ButtonMatrixFSM:comb_4|rawV[2]                     ; ButtonMatrixFSM:comb_4|Selector7 ; yes                    ;
+; ButtonMatrixFSM:comb_4|rawV[1]                     ; ButtonMatrixFSM:comb_4|Selector7 ; yes                    ;
+; ButtonMatrixFSM:comb_4|rawH[0]                     ; ButtonMatrixFSM:comb_4|Selector7 ; yes                    ;
+; Number of user-specified and inferred latches = 8  ;                                  ;                        ;
++----------------------------------------------------+----------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
 +-------------------------------------------------------------+
 ; Registers Removed During Synthesis                          ;
 +----------------------------------------+--------------------+
 ; Register name                          ; Reason for Removal ;
 +----------------------------------------+--------------------+
+; ButtonMatrixFSM:comb_4|pState~2        ; Lost fanout        ;
+; ButtonMatrixFSM:comb_4|pState~3        ; Lost fanout        ;
+; ButtonMatrixFSM:comb_4|pState~4        ; Lost fanout        ;
+; ButtonMatrixFSM:comb_4|pState~5        ; Lost fanout        ;
 ; VerticalColorStateFSM:s5|pState~2      ; Lost fanout        ;
 ; VerticalColorStateFSM:s5|pState~3      ; Lost fanout        ;
 ; VerticalColorStateFSM:s5|pState~4      ; Lost fanout        ;
@@ -358,7 +408,7 @@ Encoding Type:  One-Hot
 ; HorizontalColorStateFSM:s2|pState~4    ; Lost fanout        ;
 ; HorizontalStateFSM:s1|pState~2         ; Lost fanout        ;
 ; HorizontalStateFSM:s1|pState~3         ; Lost fanout        ;
-; Total Number of Removed Registers = 10 ;                    ;
+; Total Number of Removed Registers = 14 ;                    ;
 +----------------------------------------+--------------------+
 
 
@@ -367,12 +417,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 237   ;
+; Total registers                              ; 440   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 192   ;
+; Number of registers using Clock Enable       ; 384   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -382,7 +432,7 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 65:1               ; 3 bits    ; 129 LEs       ; 129 LEs              ; 0 LEs                  ; No         ; |VGADisplay|VGA_R          ;
+; 65:1               ; 6 bits    ; 258 LEs       ; 258 LEs              ; 0 LEs                  ; No         ; |VGADisplay|VGA_R          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
@@ -446,6 +496,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ButtonMatrixFSM:comb_4 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; S0             ; 0     ; Signed Integer                             ;
+; S1             ; 1     ; Signed Integer                             ;
+; S2             ; 2     ; Signed Integer                             ;
+; S3             ; 3     ; Signed Integer                             ;
+; S4             ; 4     ; Signed Integer                             ;
+; S5             ; 5     ; Signed Integer                             ;
+; S6             ; 6     ; Signed Integer                             ;
+; S7             ; 7     ; Signed Integer                             ;
+; S8             ; 8     ; Signed Integer                             ;
+; S9             ; 9     ; Signed Integer                             ;
+; S10            ; 10    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "JKFlipFlopAResetComp:comb_3"                                                                                                                                                           ;
 +-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -465,22 +535,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 237                         ;
+; arriav_ff             ; 440                         ;
 ;     CLR               ; 20                          ;
-;     ENA               ; 192                         ;
-;     plain             ; 25                          ;
-; arriav_lcell_comb     ; 219                         ;
-;     normal            ; 219                         ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 5                           ;
-;         3 data inputs ; 10                          ;
-;         4 data inputs ; 31                          ;
-;         5 data inputs ; 20                          ;
-;         6 data inputs ; 150                         ;
-; boundary_port         ; 29                          ;
+;     ENA               ; 384                         ;
+;     plain             ; 36                          ;
+; arriav_lcell_comb     ; 313                         ;
+;     normal            ; 313                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 6                           ;
+;         2 data inputs ; 15                          ;
+;         3 data inputs ; 19                          ;
+;         4 data inputs ; 42                          ;
+;         5 data inputs ; 31                          ;
+;         6 data inputs ; 199                         ;
+; boundary_port         ; 47                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 3.02                        ;
+; Average LUT depth     ; 3.24                        ;
 +-----------------------+-----------------------------+
 
 
@@ -489,7 +560,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -499,7 +570,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Mon Nov 02 15:37:05 2020
+    Info: Processing started: Tue Nov 03 15:49:54 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGADisplay -c VGADisplay
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -527,27 +598,66 @@ Info (12021): Found 1 design units, including 1 entities, in source file vertica
     Info (12023): Found entity 1: VerticalColorStateFSM File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VerticalColorStateFSM.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file colorstorage.v
     Info (12023): Found entity 1: ColorStorage File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ColorStorage.v Line: 1
-Critical Warning (10846): Verilog HDL Instantiation warning at VGADisplay.v(15): instance has no name File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 15
-Critical Warning (10846): Verilog HDL Instantiation warning at VGADisplay.v(29): instance has no name File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file buttonmatrixfsm.v
+    Info (12023): Found entity 1: ButtonMatrixFSM File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file priorityencoder4to2.v
+    Info (12023): Found entity 1: PriorityEncoder4to2 File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/PriorityEncoder4to2.v Line: 1
+Critical Warning (10846): Verilog HDL Instantiation warning at VGADisplay.v(21): instance has no name File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 21
+Critical Warning (10846): Verilog HDL Instantiation warning at VGADisplay.v(31): instance has no name File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 31
+Critical Warning (10846): Verilog HDL Instantiation warning at VGADisplay.v(50): instance has no name File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 50
 Info (12127): Elaborating entity "VGADisplay" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at VGADisplay.v(38): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 38
-Warning (10230): Verilog HDL assignment warning at VGADisplay.v(39): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 39
-Warning (10230): Verilog HDL assignment warning at VGADisplay.v(40): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 40
-Info (12128): Elaborating entity "JKFlipFlopAResetComp" for hierarchy "JKFlipFlopAResetComp:comb_3" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 15
+Warning (10230): Verilog HDL assignment warning at VGADisplay.v(60): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 60
+Warning (10230): Verilog HDL assignment warning at VGADisplay.v(61): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 61
+Warning (10230): Verilog HDL assignment warning at VGADisplay.v(62): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 62
+Warning (10034): Output port "LEDR[9..6]" at VGADisplay.v(9) has no driver File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 9
+Info (12128): Elaborating entity "JKFlipFlopAResetComp" for hierarchy "JKFlipFlopAResetComp:comb_3" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 21
 Info (12128): Elaborating entity "DFlipFlopAResetComp" for hierarchy "JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/JKFlipFlopAResetComp.v Line: 8
-Info (12128): Elaborating entity "sync800Comp" for hierarchy "sync800Comp:s0" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 17
-Info (12128): Elaborating entity "HorizontalStateFSM" for hierarchy "HorizontalStateFSM:s1" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 18
+Info (12128): Elaborating entity "sync800Comp" for hierarchy "sync800Comp:s0" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 23
+Info (12128): Elaborating entity "HorizontalStateFSM" for hierarchy "HorizontalStateFSM:s1" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 24
 Warning (10230): Verilog HDL assignment warning at HorizontalStateFSM.v(47): truncated value with size 32 to match size of target (1) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/HorizontalStateFSM.v Line: 47
-Info (12128): Elaborating entity "HorizontalColorStateFSM" for hierarchy "HorizontalColorStateFSM:s2" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 19
-Info (12128): Elaborating entity "sync525Comp" for hierarchy "sync525Comp:s3" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 21
-Info (12128): Elaborating entity "VerticalStateFSM" for hierarchy "VerticalStateFSM:s4" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 22
+Info (12128): Elaborating entity "HorizontalColorStateFSM" for hierarchy "HorizontalColorStateFSM:s2" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 25
+Info (12128): Elaborating entity "sync525Comp" for hierarchy "sync525Comp:s3" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 27
+Info (12128): Elaborating entity "VerticalStateFSM" for hierarchy "VerticalStateFSM:s4" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 28
 Warning (10230): Verilog HDL assignment warning at VerticalStateFSM.v(47): truncated value with size 32 to match size of target (1) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VerticalStateFSM.v Line: 47
-Info (12128): Elaborating entity "VerticalColorStateFSM" for hierarchy "VerticalColorStateFSM:s5" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 23
-Info (12128): Elaborating entity "ColorStorage" for hierarchy "ColorStorage:comb_4" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 29
+Info (12128): Elaborating entity "VerticalColorStateFSM" for hierarchy "VerticalColorStateFSM:s5" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 29
+Info (12128): Elaborating entity "ButtonMatrixFSM" for hierarchy "ButtonMatrixFSM:comb_4" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 31
+Warning (10240): Verilog HDL Always Construct warning at ButtonMatrixFSM.v(43): inferring latch(es) for variable "Y", which holds its previous value in one or more paths through the always construct File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Warning (10240): Verilog HDL Always Construct warning at ButtonMatrixFSM.v(43): inferring latch(es) for variable "rawH", which holds its previous value in one or more paths through the always construct File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Warning (10240): Verilog HDL Always Construct warning at ButtonMatrixFSM.v(43): inferring latch(es) for variable "rawV", which holds its previous value in one or more paths through the always construct File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Info (10041): Inferred latch for "rawV[0]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Info (10041): Inferred latch for "rawV[1]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Info (10041): Inferred latch for "rawV[2]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Info (10041): Inferred latch for "rawV[3]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Info (10041): Inferred latch for "rawH[0]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Info (10041): Inferred latch for "rawH[1]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Info (10041): Inferred latch for "rawH[2]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Info (10041): Inferred latch for "rawH[3]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Info (10041): Inferred latch for "Y" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Info (12128): Elaborating entity "PriorityEncoder4to2" for hierarchy "ButtonMatrixFSM:comb_4|PriorityEncoder4to2:e0" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 132
+Info (12128): Elaborating entity "ColorStorage" for hierarchy "ColorStorage:comb_11" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 50
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "colorData" into its bus
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch ButtonMatrixFSM:comb_4|rawH[3] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GPIO_0In[3] File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 6
+Warning (13012): Latch ButtonMatrixFSM:comb_4|rawH[1] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GPIO_0In[1] File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 6
+Warning (13012): Latch ButtonMatrixFSM:comb_4|rawH[2] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GPIO_0In[2] File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 6
+Warning (13012): Latch ButtonMatrixFSM:comb_4|rawV[3] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ButtonMatrixFSM:comb_4|pState.S7 File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 32
+Warning (13012): Latch ButtonMatrixFSM:comb_4|rawV[2] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ButtonMatrixFSM:comb_4|pState.S5 File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 32
+Warning (13012): Latch ButtonMatrixFSM:comb_4|rawV[1] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ButtonMatrixFSM:comb_4|pState.S3 File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 32
+Warning (13012): Latch ButtonMatrixFSM:comb_4|rawH[0] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GPIO_0In[0] File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 6
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 9
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 9
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 9
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 9
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 10 registers lost all their fanouts during netlist optimizations.
+Info (17049): 14 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK3_50 -entity DE0_CV_Default was ignored
@@ -592,7 +702,14 @@ Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity d
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_RAS_N -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_UDQM -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_WE_N -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0In[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0In[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0In[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0In[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0Out[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0Out[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0Out[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0Out[3] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[10] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[11] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[12] -entity DE0_CV_Default was ignored
@@ -603,7 +720,6 @@ Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity d
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[17] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[18] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[19] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[1] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[20] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[21] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[22] -entity DE0_CV_Default was ignored
@@ -614,18 +730,12 @@ Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity d
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[27] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[28] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[29] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[2] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[30] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[31] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[32] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[33] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[34] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[35] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[4] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[5] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[6] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[7] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[8] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[9] -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[0] -entity DE0_CV_Default was ignored
@@ -781,19 +891,21 @@ Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity d
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE0_CV_Default -section_id Top was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 4
+Warning (21074): Design contains 6 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 4
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 4
     Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 3
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 3
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 3
-Info (21057): Implemented 440 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 15 input pins
-    Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 411 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 245 warnings
-    Info: Peak virtual memory: 4826 megabytes
-    Info: Processing ended: Mon Nov 02 15:37:15 2020
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:20
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 3
+Info (21057): Implemented 751 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 19 input pins
+    Info (21059): Implemented 28 output pins
+    Info (21061): Implemented 704 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 271 warnings
+    Info: Peak virtual memory: 4825 megabytes
+    Info: Processing ended: Tue Nov 03 15:50:05 2020
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:19
 
 

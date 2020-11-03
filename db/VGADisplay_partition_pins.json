@@ -60,31 +60,47 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[9]",
+					"name" : "GPIO_0Out[0]",
 					"strict" : false
 				},
 				{
-					"name" : "KEY[3]",
+					"name" : "GPIO_0Out[1]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[5]",
+					"name" : "GPIO_0Out[2]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[3]",
+					"name" : "GPIO_0Out[3]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[4]",
+					"name" : "LEDR[0]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[2]",
+					"name" : "LEDR[1]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[0]",
+					"name" : "LEDR[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[6]",
 					"strict" : false
 				},
 				{
@@ -92,11 +108,43 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[8]",
+					"name" : "SW[0]",
 					"strict" : false
 				},
 				{
 					"name" : "SW[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[3]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0In[3]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0In[0]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0In[1]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0In[2]",
 					"strict" : false
 				},
 				{

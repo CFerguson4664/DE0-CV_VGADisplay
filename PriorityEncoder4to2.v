@@ -1,3 +1,4 @@
+// turns one hot input to binary output
 module PriorityEncoder4to2(in,out);
 	input[3:0] in;
 	output[1:0] out;

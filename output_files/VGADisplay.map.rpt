@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VGADisplay
-Tue Nov 03 15:50:05 2020
+Mon Nov 16 13:32:37 2020
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -57,7 +57,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Nov 03 15:50:05 2020       ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov 16 13:32:37 2020       ;
 ; Quartus Prime Version           ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                   ; VGADisplay                                  ;
 ; Top-level Entity Name           ; VGADisplay                                  ;
@@ -177,8 +177,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-4         ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -570,92 +569,88 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Tue Nov 03 15:49:54 2020
+    Info: Processing started: Mon Nov 16 13:32:25 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGADisplay -c VGADisplay
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file sync800comp.v
-    Info (12023): Found entity 1: sync800Comp File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/sync800Comp.v Line: 1
+    Info (12023): Found entity 1: sync800Comp File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/sync800Comp.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file sync525comp.v
-    Info (12023): Found entity 1: sync525Comp File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/sync525Comp.v Line: 1
+    Info (12023): Found entity 1: sync525Comp File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/sync525Comp.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file horizontalstatefsm.v
     Info (12023): Found entity 1: HorizontalStateFSM File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/HorizontalStateFSM.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file vgadisplay.v
-    Info (12023): Found entity 1: VGADisplay File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 1
+    Info (12023): Found entity 1: VGADisplay File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file jkflipfloparesetcomp.v
     Info (12023): Found entity 1: JKFlipFlopAResetComp File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/JKFlipFlopAResetComp.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file dflipfloparesetcomp.v
     Info (12023): Found entity 1: DFlipFlopAResetComp File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/DFlipFlopAResetComp.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file verticalstatefsm.v
     Info (12023): Found entity 1: VerticalStateFSM File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VerticalStateFSM.v Line: 3
-Info (12021): Found 1 design units, including 1 entities, in source file colorfsm.v
-    Info (12023): Found entity 1: ColorFSM File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ColorFSM.v Line: 3
-Info (12021): Found 1 design units, including 1 entities, in source file output_files/sync420comp.v
-    Info (12023): Found entity 1: sync420Comp File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/output_files/sync420Comp.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file horizontalcolorstatefsm.v
     Info (12023): Found entity 1: HorizontalColorStateFSM File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/HorizontalColorStateFSM.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file verticalcolorstatefsm.v
     Info (12023): Found entity 1: VerticalColorStateFSM File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VerticalColorStateFSM.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file colorstorage.v
-    Info (12023): Found entity 1: ColorStorage File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ColorStorage.v Line: 1
+    Info (12023): Found entity 1: ColorStorage File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ColorStorage.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file buttonmatrixfsm.v
-    Info (12023): Found entity 1: ButtonMatrixFSM File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 1
+    Info (12023): Found entity 1: ButtonMatrixFSM File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file priorityencoder4to2.v
-    Info (12023): Found entity 1: PriorityEncoder4to2 File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/PriorityEncoder4to2.v Line: 1
-Critical Warning (10846): Verilog HDL Instantiation warning at VGADisplay.v(21): instance has no name File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 21
-Critical Warning (10846): Verilog HDL Instantiation warning at VGADisplay.v(31): instance has no name File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 31
-Critical Warning (10846): Verilog HDL Instantiation warning at VGADisplay.v(50): instance has no name File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 50
+    Info (12023): Found entity 1: PriorityEncoder4to2 File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/PriorityEncoder4to2.v Line: 2
+Critical Warning (10846): Verilog HDL Instantiation warning at VGADisplay.v(25): instance has no name File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 25
+Critical Warning (10846): Verilog HDL Instantiation warning at VGADisplay.v(42): instance has no name File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 42
+Critical Warning (10846): Verilog HDL Instantiation warning at VGADisplay.v(53): instance has no name File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 53
 Info (12127): Elaborating entity "VGADisplay" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at VGADisplay.v(60): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 60
-Warning (10230): Verilog HDL assignment warning at VGADisplay.v(61): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 61
-Warning (10230): Verilog HDL assignment warning at VGADisplay.v(62): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 62
-Warning (10034): Output port "LEDR[9..6]" at VGADisplay.v(9) has no driver File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 9
-Info (12128): Elaborating entity "JKFlipFlopAResetComp" for hierarchy "JKFlipFlopAResetComp:comb_3" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 21
-Info (12128): Elaborating entity "DFlipFlopAResetComp" for hierarchy "JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/JKFlipFlopAResetComp.v Line: 8
-Info (12128): Elaborating entity "sync800Comp" for hierarchy "sync800Comp:s0" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 23
-Info (12128): Elaborating entity "HorizontalStateFSM" for hierarchy "HorizontalStateFSM:s1" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 24
-Warning (10230): Verilog HDL assignment warning at HorizontalStateFSM.v(47): truncated value with size 32 to match size of target (1) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/HorizontalStateFSM.v Line: 47
-Info (12128): Elaborating entity "HorizontalColorStateFSM" for hierarchy "HorizontalColorStateFSM:s2" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 25
-Info (12128): Elaborating entity "sync525Comp" for hierarchy "sync525Comp:s3" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 27
-Info (12128): Elaborating entity "VerticalStateFSM" for hierarchy "VerticalStateFSM:s4" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 28
-Warning (10230): Verilog HDL assignment warning at VerticalStateFSM.v(47): truncated value with size 32 to match size of target (1) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VerticalStateFSM.v Line: 47
-Info (12128): Elaborating entity "VerticalColorStateFSM" for hierarchy "VerticalColorStateFSM:s5" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 29
-Info (12128): Elaborating entity "ButtonMatrixFSM" for hierarchy "ButtonMatrixFSM:comb_4" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 31
-Warning (10240): Verilog HDL Always Construct warning at ButtonMatrixFSM.v(43): inferring latch(es) for variable "Y", which holds its previous value in one or more paths through the always construct File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-Warning (10240): Verilog HDL Always Construct warning at ButtonMatrixFSM.v(43): inferring latch(es) for variable "rawH", which holds its previous value in one or more paths through the always construct File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-Warning (10240): Verilog HDL Always Construct warning at ButtonMatrixFSM.v(43): inferring latch(es) for variable "rawV", which holds its previous value in one or more paths through the always construct File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-Info (10041): Inferred latch for "rawV[0]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-Info (10041): Inferred latch for "rawV[1]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-Info (10041): Inferred latch for "rawV[2]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-Info (10041): Inferred latch for "rawV[3]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-Info (10041): Inferred latch for "rawH[0]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-Info (10041): Inferred latch for "rawH[1]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-Info (10041): Inferred latch for "rawH[2]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-Info (10041): Inferred latch for "rawH[3]" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-Info (10041): Inferred latch for "Y" at ButtonMatrixFSM.v(43) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-Info (12128): Elaborating entity "PriorityEncoder4to2" for hierarchy "ButtonMatrixFSM:comb_4|PriorityEncoder4to2:e0" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 132
-Info (12128): Elaborating entity "ColorStorage" for hierarchy "ColorStorage:comb_11" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 50
+Warning (10230): Verilog HDL assignment warning at VGADisplay.v(65): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 65
+Warning (10230): Verilog HDL assignment warning at VGADisplay.v(66): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 66
+Warning (10230): Verilog HDL assignment warning at VGADisplay.v(67): truncated value with size 32 to match size of target (4) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 67
+Warning (10034): Output port "LEDR[9..6]" at VGADisplay.v(11) has no driver File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 11
+Info (12128): Elaborating entity "JKFlipFlopAResetComp" for hierarchy "JKFlipFlopAResetComp:comb_3" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 25
+Info (12128): Elaborating entity "DFlipFlopAResetComp" for hierarchy "JKFlipFlopAResetComp:comb_3|DFlipFlopAResetComp:ff0" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/JKFlipFlopAResetComp.v Line: 10
+Info (12128): Elaborating entity "sync800Comp" for hierarchy "sync800Comp:s0" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 28
+Info (12128): Elaborating entity "HorizontalStateFSM" for hierarchy "HorizontalStateFSM:s1" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 30
+Warning (10230): Verilog HDL assignment warning at HorizontalStateFSM.v(48): truncated value with size 32 to match size of target (1) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/HorizontalStateFSM.v Line: 48
+Info (12128): Elaborating entity "HorizontalColorStateFSM" for hierarchy "HorizontalColorStateFSM:s2" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 32
+Info (12128): Elaborating entity "sync525Comp" for hierarchy "sync525Comp:s3" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 35
+Info (12128): Elaborating entity "VerticalStateFSM" for hierarchy "VerticalStateFSM:s4" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 37
+Warning (10230): Verilog HDL assignment warning at VerticalStateFSM.v(48): truncated value with size 32 to match size of target (1) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VerticalStateFSM.v Line: 48
+Info (12128): Elaborating entity "VerticalColorStateFSM" for hierarchy "VerticalColorStateFSM:s5" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 39
+Info (12128): Elaborating entity "ButtonMatrixFSM" for hierarchy "ButtonMatrixFSM:comb_4" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 42
+Warning (10240): Verilog HDL Always Construct warning at ButtonMatrixFSM.v(39): inferring latch(es) for variable "Y", which holds its previous value in one or more paths through the always construct File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+Warning (10240): Verilog HDL Always Construct warning at ButtonMatrixFSM.v(39): inferring latch(es) for variable "rawH", which holds its previous value in one or more paths through the always construct File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+Warning (10240): Verilog HDL Always Construct warning at ButtonMatrixFSM.v(39): inferring latch(es) for variable "rawV", which holds its previous value in one or more paths through the always construct File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+Info (10041): Inferred latch for "rawV[0]" at ButtonMatrixFSM.v(39) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+Info (10041): Inferred latch for "rawV[1]" at ButtonMatrixFSM.v(39) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+Info (10041): Inferred latch for "rawV[2]" at ButtonMatrixFSM.v(39) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+Info (10041): Inferred latch for "rawV[3]" at ButtonMatrixFSM.v(39) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+Info (10041): Inferred latch for "rawH[0]" at ButtonMatrixFSM.v(39) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+Info (10041): Inferred latch for "rawH[1]" at ButtonMatrixFSM.v(39) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+Info (10041): Inferred latch for "rawH[2]" at ButtonMatrixFSM.v(39) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+Info (10041): Inferred latch for "rawH[3]" at ButtonMatrixFSM.v(39) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+Info (10041): Inferred latch for "Y" at ButtonMatrixFSM.v(39) File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+Info (12128): Elaborating entity "PriorityEncoder4to2" for hierarchy "ButtonMatrixFSM:comb_4|PriorityEncoder4to2:e0" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 129
+Info (12128): Elaborating entity "ColorStorage" for hierarchy "ColorStorage:comb_11" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 53
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "colorData" into its bus
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13012): Latch ButtonMatrixFSM:comb_4|rawH[3] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Warning (13012): Latch ButtonMatrixFSM:comb_4|rawH[3] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
     Warning (13013): Ports D and ENA on the latch are fed by the same signal GPIO_0In[3] File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 6
-Warning (13012): Latch ButtonMatrixFSM:comb_4|rawH[1] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Warning (13012): Latch ButtonMatrixFSM:comb_4|rawH[1] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
     Warning (13013): Ports D and ENA on the latch are fed by the same signal GPIO_0In[1] File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 6
-Warning (13012): Latch ButtonMatrixFSM:comb_4|rawH[2] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Warning (13012): Latch ButtonMatrixFSM:comb_4|rawH[2] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
     Warning (13013): Ports D and ENA on the latch are fed by the same signal GPIO_0In[2] File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 6
-Warning (13012): Latch ButtonMatrixFSM:comb_4|rawV[3] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ButtonMatrixFSM:comb_4|pState.S7 File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 32
-Warning (13012): Latch ButtonMatrixFSM:comb_4|rawV[2] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ButtonMatrixFSM:comb_4|pState.S5 File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 32
-Warning (13012): Latch ButtonMatrixFSM:comb_4|rawV[1] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ButtonMatrixFSM:comb_4|pState.S3 File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 32
-Warning (13012): Latch ButtonMatrixFSM:comb_4|rawH[0] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 43
+Warning (13012): Latch ButtonMatrixFSM:comb_4|rawV[3] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ButtonMatrixFSM:comb_4|pState.S7 File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 28
+Warning (13012): Latch ButtonMatrixFSM:comb_4|rawV[2] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ButtonMatrixFSM:comb_4|pState.S5 File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 28
+Warning (13012): Latch ButtonMatrixFSM:comb_4|rawV[1] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ButtonMatrixFSM:comb_4|pState.S3 File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 28
+Warning (13012): Latch ButtonMatrixFSM:comb_4|rawH[0] has unsafe behavior File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/ButtonMatrixFSM.v Line: 39
     Warning (13013): Ports D and ENA on the latch are fed by the same signal GPIO_0In[0] File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 6
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 9
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 9
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 9
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 9
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 11
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 11
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 11
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 11
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 14 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
@@ -892,20 +887,20 @@ Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity d
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 6 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 4
-    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 4
-    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 3
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 3
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 3
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 3
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 5
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 4
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 4
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 4
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/overk/OneDrive/Documents/GitHub/DE0-CV_VGADisplay/VGADisplay.v Line: 4
 Info (21057): Implemented 751 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 19 input pins
     Info (21059): Implemented 28 output pins
     Info (21061): Implemented 704 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 271 warnings
     Info: Peak virtual memory: 4825 megabytes
-    Info: Processing ended: Tue Nov 03 15:50:05 2020
-    Info: Elapsed time: 00:00:11
+    Info: Processing ended: Mon Nov 16 13:32:37 2020
+    Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:19
 
 

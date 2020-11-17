@@ -1,50 +1,51 @@
 //FSM Design
-
+//Determines which of the 4 vertical states we are in
 module VerticalStateFSM(A,CLK,Y,Q);
-input CLK;
-input[9:0] A;
-output Y;
-output [1:0] Q;
+	input CLK;
+	input[9:0] A;
+	output Y;
+	output [1:0] Q;
 
-parameter S0 = 0;
-parameter S1 = 1;
-parameter S2 = 2;
-parameter S3 = 3;
+	parameter S0 = 0;
+	parameter S1 = 1;
+	parameter S2 = 2;
+	parameter S3 = 3;
 
 
-reg [1:0] pState, nState;
+	reg [1:0] pState, nState;
 
-//Shift logic
-always@(posedge CLK)
-begin
-	pState = nState;
-end
+	//Shift logic
+	always@(posedge CLK)
+	begin
+		pState = nState;
+	end
 
-//Next state logic
-always@(*)
-case(pState)
-S0 :	case(A)
-			1 : nState = S1;
-			default : nState = S0;
-		endcase
-S1 :	case(A)
-			34 : nState = S2;
-			default : nState = S1;
-		endcase
-S2 :	case(A)
-			514 : nState = S3;
-			default : nState = S2;
-		endcase
-S3 : 	case(A)
-			524 : nState = S0;
-			default : nState = S3;
-		endcase
-default : nState = S0;
-endcase
+	//Next state logic
+	always@(*)
+	case(pState)
+	S0 :	case(A)
+				1 : nState = S1;
+				default : nState = S0;
+			endcase
+	S1 :	case(A)
+				34 : nState = S2;
+				default : nState = S1;
+			endcase
+	S2 :	case(A)
+				514 : nState = S3;
+				default : nState = S2;
+			endcase
+	S3 : 	case(A)
+				524 : nState = S0;
+				default : nState = S3;
+			endcase
+	default : nState = S0;
+	endcase
 
-assign Q = pState;
+	assign Q = pState;
 
-assign Y = (pState == S0) ? 0 : 1;
+	//Generate Vertical sync signal
+	assign Y = (pState == S0) ? 0 : 1;
 
 endmodule
 		

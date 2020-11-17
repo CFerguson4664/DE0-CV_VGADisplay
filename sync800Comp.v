@@ -1,3 +1,4 @@
+//Used to determine which column we are currently in
 module sync800Comp(CLK,Cout);
 	input CLK;
 	output[9:0] Cout;

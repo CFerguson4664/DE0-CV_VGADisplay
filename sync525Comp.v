@@ -1,3 +1,4 @@
+//Used to determine which row we are currently in
 module sync525Comp(CLK,Cout);
 	input CLK;
 	output[9:0] Cout;
